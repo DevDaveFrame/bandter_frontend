@@ -2,7 +2,7 @@ import React from 'react';
 import {Container} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { loginUser, logoutUser } from './actions/userActions'
+import { setUser, logoutUser } from './actions/userActions'
 import './App.css';
 import NavBar from './components/NavBar';
 import Welcome from "./containers/Welcome";
@@ -15,7 +15,7 @@ class App extends React.Component {
 
   componentWillMount(){
     if (localStorage.token) {
-      this.props.loginUser()
+      this.props.setUser()
     }
   }
 
@@ -70,4 +70,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { loginUser, logoutUser })(App);
+export default connect(mapStateToProps, { setUser, logoutUser })(App);
