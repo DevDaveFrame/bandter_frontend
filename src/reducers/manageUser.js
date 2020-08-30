@@ -2,12 +2,12 @@ export default function userReducer(state = {user: {}, loggedIn: false}, action)
   let idx;
   switch (action.type) {
     case "LOGIN_USER":
-    console.log(action)
-    let user = action.user.user.data.attributes
-    localStorage.token = action.user.token;
+    console.log(action.data.user.data.attributes)
+    let user = action.data.user.data.attributes
+    localStorage.token = action.data.token;
     localStorage.current = user.id
       return {
-        user: action.user,
+        user: user,
         loggedIn: true
       };
     case "LOGOUT_USER":

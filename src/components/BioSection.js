@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Card, Image, Icon} from "semantic-ui-react";
 import UserUpdate from "./UserUpdate";
 
 function BioSection(props) {
-
-  const {user} = props
+  const user = props.user.user
+  console.log('user: ', user);
   
   return (
     <Card>
@@ -29,4 +30,11 @@ function BioSection(props) {
   )
 }
 
-export default BioSection;
+const mapStateToProps = state => {
+  return { 
+    user: state.user,
+    loggedIn: state.loggedIn
+  };
+};
+
+export default connect(mapStateToProps)(BioSection);

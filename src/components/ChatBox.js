@@ -1,33 +1,14 @@
 import React from 'react'
-import { useState } from 'react'
+import ChatDisplay from './ChatDisplay'
+import ChatInput from './ChatInput'
 
-function ChatBox (props) {
-  const [currentMessage, setCurrentMessage] = useState('')
-  
-  const updateCurrentChatMessage = (event) => {
-    setCurrentMessage(event.target.value)
-  }
-
-  const handleSendEvent = (event) => {
-    event.preventDefault();
-    props.chats.create(currentMessage);
-    setCurrentMessage("")
-  }
-
+function ChatBox () {
   return (
-    <div>
-        <input
-          value={ currentMessage }
-          onChange={ (e) => updateCurrentChatMessage(e) }
-          type='text'
-          placeholder='Enter your message...'
-          className='chat-input' 
-        />
-        <button
-          onClick={ (e) => handleSendEvent(e) }
-          className='send'>Send</button>
-      </div>
+    <div className="chat-box">
+      <ChatDisplay/> 
+      <ChatInput/>
+    </div>
   )
 }
 
-export default ChatBox;
+export default ChatBox

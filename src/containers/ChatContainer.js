@@ -30,10 +30,10 @@ class ChatContainer extends React.Component {
   }
   render(){
     return (
-      <>
+      <div className='chat-container' >
         <MatchContainer />
         <ChatBox chats={this.chats}/>
-      </>
+      </div>
     )
   }
 }

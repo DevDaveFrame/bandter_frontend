@@ -1,7 +1,7 @@
-export const loginUser = (user) => {
+export const loginUser = (data) => {
   return {
     type: 'LOGIN_USER',
-    user
+    data
   }
 };
 

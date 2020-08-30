@@ -4,7 +4,7 @@ export default function messagesReducer(state = [], action) {
     case "ADD_MESSAGE":
       return [...state, action.message];
     case "LOGIN_USER":
-      return action.messages;
+      return state;
     default:
       return state;
   }
