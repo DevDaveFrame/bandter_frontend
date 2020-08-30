@@ -23,7 +23,7 @@ function BioSection(props) {
       <Icon name='user' />
       {0} Matches
     </a>
-    <UserUpdate handleLogin={props.handleLogin} user={user} />
+    <UserUpdate user={user} />
   </Card.Content>
 </Card>
   )

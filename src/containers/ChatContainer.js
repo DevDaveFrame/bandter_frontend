@@ -1,47 +1,13 @@
 import React from 'react'
+
 import Cable from 'actioncable'
+import ChatBox from '../components/ChatBox'
+import MatchContainer from './MatchContainer'
 
 class ChatContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentChatMessage: ''
-    };
-  }
-  
-  updateCurrentChatMessage(event) {
-    this.setState({
-      currentChatMessage: event.target.value
-    });
-  }
 
-  handleSendEvent(event) {
-    event.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({
-      currentChatMessage: ''
-    });
-  }
-
-  componentDidMount() {
+  componentWillMount(){
     this.createSocket();
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          value={ this.state.currentChatMessage }
-          onChange={ (e) => this.updateCurrentChatMessage(e) }
-          type='text'
-          placeholder='Enter your message...'
-          className='chat-input' 
-        />
-        <button
-          onClick={ (e) => this.handleSendEvent(e) }
-          className='send'>Send</button>
-      </div>
-    )
   }
 
   createSocket() {
@@ -54,13 +20,21 @@ class ChatContainer extends React.Component {
         console.log(data);
       },
       create: function(chatContent) {
-        this.perform('create', {
+          this.perform('create', {
           content: chatContent,
           user_id: 41,
           match_chat_id: 1
         });
       }
     });
+  }
+  render(){
+    return (
+      <>
+        <MatchContainer />
+        <ChatBox chats={this.chats}/>
+      </>
+    )
   }
 }
 

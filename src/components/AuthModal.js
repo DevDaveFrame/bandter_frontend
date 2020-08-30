@@ -29,7 +29,7 @@ function AuthModal(props) {
           > Sign Up </Menu.Item>
       </Menu>
       <Segment attached='bottom'>
-        {tab === 'login' ? <Login handleLogin={props.handleLogin}/> : <Signup handleLogin={props.handleLogin}/> }
+        {tab === 'login' ? <Login /> : <Signup /> }
       </Segment>
     </Modal>
   )

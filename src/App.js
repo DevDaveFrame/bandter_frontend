@@ -24,17 +24,14 @@ class App extends React.Component {
       }
       fetch(`http://localhost:3000/api/v1/users/${localStorage.current}`, request)
       .then(r => r.json())
-      .then(data => this.props.loginUser(data.user.data.attributes))
+      .then(data => this.props.loginUser(data))
     }
   }
 
   render() {
     return (
       <Router>
-        <NavBar
-          logOut={this.logOut}
-          handleLogin={this.handleLogin}
-        />
+        <NavBar />
         <Container>
           <Route
             exact
@@ -72,20 +69,6 @@ class App extends React.Component {
         </Container>
       </Router>
     );
-  }
-  handleLogin = (data) => {
-    let user = data.user.data.attributes
-    let messages = data.user.data.relationships.messages
-    console.log('user: ', user);
-    console.log('data: ', data);
-    localStorage.token = data.token;
-    localStorage.current = user.id
-    this.props.loginUser(user)
-  }
-
-  logOut = () => {
-    localStorage.clear()
-    this.props.logoutUser()
   }
 }
 

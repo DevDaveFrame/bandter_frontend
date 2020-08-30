@@ -3,7 +3,7 @@ export default function messagesReducer(state = [], action) {
   switch (action.type) {
     case "ADD_MESSAGE":
       return [...state, action.message];
-    case "SET_MESSAGES":
+    case "LOGIN_USER":
       return action.messages;
     default:
       return state;

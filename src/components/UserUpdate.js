@@ -34,17 +34,11 @@ class UserUpdate extends React.Component {
             name="bio"  label="Bio" type="textarea" 
             value={this.state.bio || ''}/>
             <Form.Input onChange={(e) => this.handleChange(e)} 
-            name="weekly_run_quota" label='Goals: Runs per Week' 
-            type='text' value={this.state.weekly_run_quota || ''}/>
-            <Form.Input onChange={(e) => this.handleChange(e)} 
             name="img_url" label='Profile Picture (Link)' 
             type='text' value={this.state.img_url || ''}/>
             <Form.Input onChange={(e) => this.handleChange(e)} 
             name="location" label='Location' 
             type='text' value={this.state.location || ''}/>
-            <Form.Input onChange={(e) => this.handleChange(e)} 
-            name="zipcode" label='Zip Code' 
-            type='text' value={this.state.zipcode || ''}/>
             <Button type='submit'>Submit</Button>
           </Form>
         </Modal.Content>

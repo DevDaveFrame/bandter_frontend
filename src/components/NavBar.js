@@ -1,54 +1,49 @@
 import React from "react";
+import {useState} from 'react';
 import {connect} from "react-redux";
+import {loginUser, logoutUser} from "../actions/userActions"
 import {NavLink} from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import AuthModal from "./AuthModal";
 
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeItem: "",
-    };
-  }
+function NavBar (props) {
+  const [activeItem, setActiveItem] = useState('profile')
 
-  render() {
-    return (
-      <Menu color={'yellow'} >
-        <Menu.Item as={NavLink} to="/">Bandter (placeholder)</Menu.Item>
+  return (
+    <Menu color={'red'} >
+      <Menu.Item active={false} as={NavLink} to="/">Bandter (placeholder)</Menu.Item>
 
-        <Menu.Item as={NavLink} to="/profile"
-          name='profile'
-          active={this.state.activeItem === 'profile'}
-          onClick={this.handleItemClick}
-        />
+      <Menu.Item as={NavLink} to="/profile"
+        name='profile'
+        active={activeItem === 'profile'}
+        onClick={() => setActiveItem('profile')}
+      />
 
-        <Menu.Item as={NavLink} to="/discover"
-          name='discover'
-          active={this.state.activeItem === 'discover'}
-          onClick={this.handleItemClick}
-        />
+      <Menu.Item as={NavLink} to="/discover"
+        name='discover'
+        active={activeItem === 'discover'}
+        onClick={() => setActiveItem('discover')}
+      />
 
-        <Menu.Item as={NavLink} to="/chat"
-          name='chat'
-          active={this.state.activeItem === 'chat'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Menu position="right">
-          {this.props.user.loggedIn ? 
-            <Menu.Item 
-            name='logout'
-            active={this.state.activeItem === 'logout'}
-            content='Logout'
-            onClick={this.props.logOut}
-            />
-          :
-            <AuthModal handleLogin={this.props.handleLogin} />
-          }
-        </Menu.Menu>
-      </Menu>
-    )
-  }
+      <Menu.Item as={NavLink} to="/chat"
+        name='chat'
+        active={activeItem === 'chat'}
+        onClick={() => setActiveItem('chat')}
+      />
+      <Menu.Menu position="right">
+        {props.user.loggedIn ? 
+          <Menu.Item 
+          name='logout'
+          active={activeItem === 'logout'}
+          content='Logout'
+          onClick={props.logoutUser}
+          />
+        :
+          <AuthModal handleLogin={props.loginUser} />
+        }
+      </Menu.Menu>
+    </Menu>
+  )
 }
 const mapStateToProps = state => {
   return { 
@@ -57,4 +52,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps, { loginUser, logoutUser })(NavBar);
