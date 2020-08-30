@@ -1,13 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
 import ChatBox from '../components/ChatBox'
 import MatchContainer from './MatchContainer'
 
-function ChatContainer () {
+function ChatContainer (props) {
     return (
       <div className='chat-container' >
         <MatchContainer />
-        <ChatBox/>
+        <ChatBox user={props.user}/>
       </div>
     )
 }
@@ -19,4 +19,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(ChatContainer);
+export default connect(mapStateToProps)(ChatContainer);

@@ -1,18 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
-import {connect} from 'react-redux'
 
 function ChatInput (props) {
   const [currentMessage, setCurrentMessage] = useState('')
-  
   const updateCurrentChatMessage = (event) => {
     setCurrentMessage(event.target.value)
   }
-
   const handleSendEvent = (event) => {
     event.preventDefault();
-    props.chats.create(currentMessage);
-    setCurrentMessage("")
+    props.postMessage(currentMessage);
+    setCurrentMessage("");
   }
 
   
@@ -32,11 +29,4 @@ function ChatInput (props) {
       </div>
   )
 }
-const mapStateToProps = state => {
-  return { 
-    user: state.user,
-    loggedIn: state.loggedIn
-  };
-};
-
-export default connect(mapStateToProps, {})(ChatInput);
+export default ChatInput;

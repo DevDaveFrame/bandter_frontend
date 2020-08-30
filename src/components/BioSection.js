@@ -5,7 +5,6 @@ import UserUpdate from "./UserUpdate";
 
 function BioSection(props) {
   const user = props.user.user
-  console.log('user: ', user);
   
   return (
     <Card>

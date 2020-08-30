@@ -9,18 +9,21 @@ export default function userReducer(state = {user: {}, loggedIn: false}, action)
     localStorage.token = action.data.token;
     localStorage.current = user.id
       return {
+        ...state,
         user: user,
         loggedIn: true
       };
     case "SET_USER":
       user = action.data.user.data.attributes
       return {
+        ...state,
         user: user,
         loggedIn: true
       };
     case "LOGOUT_USER":
       localStorage.clear()
       return {
+        ...state,
         user: null,
         loggedIn: false
       };
