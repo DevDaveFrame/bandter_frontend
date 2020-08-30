@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import {connect} from 'react-redux'
 
 function ChatInput (props) {
   const [currentMessage, setCurrentMessage] = useState('')
@@ -13,6 +14,8 @@ function ChatInput (props) {
     props.chats.create(currentMessage);
     setCurrentMessage("")
   }
+
+  
 
   return (
     <div className='chat-bar'>
@@ -29,5 +32,11 @@ function ChatInput (props) {
       </div>
   )
 }
+const mapStateToProps = state => {
+  return { 
+    user: state.user,
+    loggedIn: state.loggedIn
+  };
+};
 
-export default ChatInput;
+export default connect(mapStateToProps, {})(ChatInput);

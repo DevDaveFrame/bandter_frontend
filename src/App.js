@@ -13,7 +13,7 @@ import ChatContainer from './containers/ChatContainer';
 
 class App extends React.Component {
 
-  componentWillMount(){
+  componentDidMount(){
     if (localStorage.token) {
       this.props.setUser()
     }
