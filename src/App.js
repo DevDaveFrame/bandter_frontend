@@ -13,18 +13,9 @@ import ChatContainer from './containers/ChatContainer';
 
 class App extends React.Component {
 
-  componentDidMount(){
+  componentWillMount(){
     if (localStorage.token) {
-      let request = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.token}`
-        }
-      }
-      fetch(`http://localhost:3000/api/v1/users/${localStorage.current}`, request)
-      .then(r => r.json())
-      .then(data => this.props.loginUser(data))
+      this.props.loginUser()
     }
   }
 

@@ -1,6 +1,8 @@
 export default function userReducer(state = {user: {}, loggedIn: false}, action) {
   let idx;
   switch (action.type) {
+    case 'START_LOGGING_IN':
+      return {user: {}, loggedIn: true}
     case "LOGIN_USER":
     console.log(action.data.user.data.attributes)
     let user = action.data.user.data.attributes
