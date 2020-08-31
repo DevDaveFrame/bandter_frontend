@@ -1,30 +1,30 @@
-export default function userReducer(state = {user: {}, loggedIn: false}, action) {
+export default function userReducer(state = {}, action) {
   let user;
   switch (action.type) {
     case 'START_LOGGING_IN':
-      return {...state, user: {}, loggedIn: true}
+      return {...state, loggedIn: true}
     case "LOGIN_USER":
-    console.log(action.data.user.data.attributes)
+    console.log("from backend: " + action.data)
     user = action.data.user.data.attributes
     localStorage.token = action.data.token;
     localStorage.current = user.id
       return {
         ...state,
-        user: user,
+        ...user,
         loggedIn: true
       };
     case "SET_USER":
+      console.log(action)
       user = action.data.user.data.attributes
       return {
         ...state,
-        user: user,
+        ...user,
         loggedIn: true
       };
     case "LOGOUT_USER":
       localStorage.clear()
       return {
         ...state,
-        user: null,
         loggedIn: false
       };
     default:

@@ -4,7 +4,7 @@ import {Card, Image, Icon} from "semantic-ui-react";
 import UserUpdate from "./UserUpdate";
 
 function BioSection(props) {
-  const user = props.user.user
+  const user = props.user;
   
   return (
     <Card>
@@ -31,8 +31,7 @@ function BioSection(props) {
 
 const mapStateToProps = state => {
   return { 
-    user: state.user,
-    loggedIn: state.loggedIn
+    user: state.user
   };
 };
 
