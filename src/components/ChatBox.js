@@ -1,14 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { pushToCurrentChat } from '../actions/chatActions'
 import Cable from 'actioncable';
 import ChatDisplay from './ChatDisplay';
 import ChatInput from './ChatInput';
 
+
+// BUGS HERE!!! DOUBLING OF SUBSCRIPTIONS NEEDS STATE TO TRACK SUBS!!!!!
+
 function ChatBox (props) {
   let {user} = props;
   user = user.user;
+  let subscribed = false;
+  let chat;
 
     let cable = Cable.createConsumer("ws://localhost:3000/cable");
-    let chat = cable.subscriptions.create(
+    if (!subscribed){
+      console.log("HIT")
+      chat = cable.subscriptions.create(
       {
         channel: "MatchChatChannel",
         match_chat_id: 1,
@@ -16,7 +25,8 @@ function ChatBox (props) {
       {
         connected: () => {},
         received: (data) => {
-          console.log(data);
+          console.log('data: ', data);
+          props.pushToCurrentChat(data);
         },
         create: function (chatContent) {
           this.perform("create", {
@@ -27,6 +37,8 @@ function ChatBox (props) {
         },
       }
     );
+    subscribed = true;
+  }
 
   const postMessage = (message) => {
     chat.create(message);
@@ -34,10 +46,14 @@ function ChatBox (props) {
 
     return (
       <div className="chat-box">
-        <ChatDisplay />
+        <ChatDisplay messages={props.messages}/>
         <ChatInput postMessage={postMessage} />
       </div>
     );
 }
 
-export default ChatBox;
+const mapStateToProps = state => {
+  return {messages: state.messages}
+}
+
+export default connect(mapStateToProps, { pushToCurrentChat })(ChatBox);

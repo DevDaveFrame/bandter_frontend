@@ -1,9 +1,10 @@
 import React from 'react'
+import ChatBubble from "./ChatBubble"
 
-function ChatDisplay() {
+function ChatDisplay(props) {
   return (
     <div className="chat-display">
-      "CHAT CHAT CHAT CHAT"
+      {props.messages.map(message => <ChatBubble key={message.id} message={message} />)}
     </div>
   )
 }
