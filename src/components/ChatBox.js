@@ -1,59 +1,56 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { pushToCurrentChat } from '../actions/chatActions'
 import Cable from 'actioncable';
+import {connect} from 'react-redux';
+import {useState} from 'react';
+import { pushToCurrentChat } from '../actions/chatActions';
 import ChatDisplay from './ChatDisplay';
 import ChatInput from './ChatInput';
 
-
-// BUGS HERE!!! DOUBLING OF SUBSCRIPTIONS NEEDS STATE TO TRACK SUBS!!!!!
-
 function ChatBox (props) {
-  let {user} = props;
-  user = user.user;
-  let subscribed = false;
-  let chat;
-
-    let cable = Cable.createConsumer("ws://localhost:3000/cable");
-    if (!subscribed){
-      console.log("HIT")
-      chat = cable.subscriptions.create(
+  const [connection, setConnection] = useState(null);
+  const [subscription, setSubscription] = useState(null);
+  const cable = Cable.createConsumer("ws://localhost:3000/cable");
+  let current = props.chats.current;
+ 
+  const postMessage = (message) => {
+    subscription.create(message);
+  }
+  if (current.id && connection !== current.id) {
+    setSubscription(cable.subscriptions.create(
       {
         channel: "MatchChatChannel",
-        match_chat_id: 1,
+        match_chat_id: current.id,
       },
       {
         connected: () => {},
         received: (data) => {
-          console.log('data: ', data);
           props.pushToCurrentChat(data);
         },
         create: function (chatContent) {
           this.perform("create", {
             content: chatContent,
-            user_id: user.id,
-            match_chat_id: 1,
+            user_id: props.user.id,
+            match_chat_id: current.id,
           });
         },
       }
-    );
-    subscribed = true;
+    ))
+    setConnection(current.id);
   }
-
-  const postMessage = (message) => {
-    chat.create(message);
-  }
-
-    return (
-      <div className="chat-box">
-        <ChatDisplay messages={props.messages}/>
-        <ChatInput postMessage={postMessage} />
-      </div>
-    );
+  return (
+    <div className="chat-box">
+      <ChatDisplay />
+      <ChatInput postMessage={postMessage} />
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
-  return {messages: state.messages}
-}
+  return { 
+    user: state.user,
+    chats: state.chats,
+    messages: state.messages
+  };
+};
 
 export default connect(mapStateToProps, { pushToCurrentChat })(ChatBox);

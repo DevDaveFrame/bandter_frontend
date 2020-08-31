@@ -7,11 +7,11 @@ import { Menu } from "semantic-ui-react";
 import AuthModal from "./AuthModal";
 
 function NavBar (props) {
-  const [activeItem, setActiveItem] = useState('profile')
+  const [activeItem, setActiveItem] = useState("")
 
   return (
-    <Menu color={'red'} >
-      <Menu.Item active={false} as={NavLink} to="/">Bandter (placeholder)</Menu.Item>
+    <Menu className='navbar' color={'red'} inverted >
+      <Menu.Item header as={NavLink} exact to="/" active={false}>Bandter</Menu.Item>
 
       <Menu.Item as={NavLink} to="/profile"
         name='profile'
