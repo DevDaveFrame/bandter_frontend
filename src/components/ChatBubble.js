@@ -4,7 +4,7 @@ function ChatBubble (props) {
   console.log('props: ', props);
   return (
     <div className="chat-bubble">
-      {props.message.content}
+      {`${props.message.attributes.content}`}
     </div>
     )
 }

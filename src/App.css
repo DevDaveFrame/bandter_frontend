@@ -9,14 +9,17 @@
   }
 }
 
-div.ui.red.inverted.menu.navbar {
+div.ui.red.inverted.menu.navbar a {
   font-family: 'Permanent Marker', cursive;
+  padding: .75rem;
 }
 
 div.ui.red.inverted.menu.navbar a.header.item{
   font-family: 'Permanent Marker', cursive;
   font-size: 1.3rem;
   font-weight: 200;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 body {
@@ -61,6 +64,9 @@ body {
   height: 90%;
   width: 100%;
   background-color: #edf3fe;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y proximity;
 }
 
 .chat-bar {
@@ -103,11 +109,20 @@ body {
 }
 
 .chat-bubble {
+  min-height: 1.5rem;
   margin-bottom: 2px;
   padding: 5px;
   border-radius: 5px;
   background-color: lightblue;
+}
 
+.chat-bubble:last-of-type {
+  min-height: 1.5rem;
+  margin-bottom: -5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(151, 209, 228);
+  scroll-snap-align: end;
 }
 
 .match-box {
@@ -135,8 +150,11 @@ body {
 }
 
 .match-thumb {
-  height: 100%;
-  width: 20%;
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 20%;
 }
 
 .chat-info {
