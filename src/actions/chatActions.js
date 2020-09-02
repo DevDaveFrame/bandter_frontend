@@ -1,7 +1,7 @@
 export function pushToCurrentChat (message) {
     return {
       type: "ADD_MESSAGE",
-      message: {id: message.id, attributes: message}
+      message: message.data
     }
 }
 
