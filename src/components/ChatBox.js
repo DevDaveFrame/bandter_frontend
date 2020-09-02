@@ -1,22 +1,22 @@
 import React from 'react';
 import Cable from 'actioncable';
 import {connect} from 'react-redux';
-import {useState} from 'react';
+import {setSubscriptions} from '../actions/subscriptionActions'
 import { pushToCurrentChat } from '../actions/chatActions';
 import ChatDisplay from './ChatDisplay';
 import ChatInput from './ChatInput';
 
 function ChatBox (props) {
-  const [connection, setConnection] = useState(null);
-  const [subscription, setSubscription] = useState(null);
   const cable = Cable.createConsumer("ws://localhost:3000/cable");
   let current = props.chats.current;
- 
+  
   const postMessage = (message) => {
-    subscription.create(message);
+    props.subscriptions[current.id].create(message);
   }
-  if (current.id && connection !== current.id) {
-    setSubscription(cable.subscriptions.create(
+  if (current.id && !(current.id in props.subscriptions)) {
+    props.setSubscriptions(
+      current.id,
+      cable.subscriptions.create(
       {
         channel: "MatchChatChannel",
         match_chat_id: current.id,
@@ -34,8 +34,8 @@ function ChatBox (props) {
           });
         },
       }
-    ))
-    setConnection(current.id);
+    )
+   )
   }
   return (
     <div className="chat-box">
@@ -49,8 +49,9 @@ const mapStateToProps = state => {
   return { 
     user: state.user,
     chats: state.chats,
-    messages: state.messages
+    messages: state.messages,
+    subscriptions: state.subscriptions
   };
 };
 
-export default connect(mapStateToProps, { pushToCurrentChat })(ChatBox);
+export default connect(mapStateToProps, { pushToCurrentChat, setSubscriptions })(ChatBox);

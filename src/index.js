@@ -10,11 +10,13 @@ import thunk from 'redux-thunk'
 import userReducer from './reducers/manageUser';
 import messagesReducer from './reducers/manageMessages';
 import chatsReducer from './reducers/manageChats'
+import subscriptionsReducer from './reducers/manageSubscriptions';
 
 const rootReducer = combineReducers({
   user: userReducer,
   messages: messagesReducer,
-  chats: chatsReducer
+  chats: chatsReducer,
+  subscriptions: subscriptionsReducer
 })
 const store = createStore(
   rootReducer, compose(

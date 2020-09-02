@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
-import ChatBubble from "./ChatBubble"
+import ChatBubble from "./ChatBubble";
+import {animateScroll} from 'react-scroll'
 
 function ChatDisplay(props) {
-  let thisChat = props.messages.filter(message => message.attributes.match_chat_id === props.chats.current.id)
+  const thisChat = props.messages.filter(message => message.attributes.match_chat_id === props.chats.current.id)
+  useEffect(() => animateScroll.scrollToBottom({containerId: "chat-display"}))
   return (
     props.chats.current.id ?
-    <div className="chat-display">
+    <div id='chat-display' className="chat-display">
       {thisChat.map(message => <ChatBubble key={message.id} message={message} />)}
     </div>
-    : <div className="chat-display"> <h1>NOTHING HERE YET!!</h1></div>
+    : <div id='chat-display' className="chat-display"> <h1>NOTHING HERE YET!!</h1></div>
   )
 }
 

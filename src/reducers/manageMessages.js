@@ -5,8 +5,9 @@ export default function messagesReducer(state = [], action) {
       return [...state, action.message];
     case "SET_MESSAGES":
       let messages = action.messages.included
-      console.log('messages: ', messages);
-      return [...state, ...messages];
+      return [...messages]
+    case "LOGOUT_USER":
+    return [];
     default:
       return state;
   }

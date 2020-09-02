@@ -11,7 +11,6 @@ function MatchContainer (props) {
   )
 }
 
-
 const mapStateToProps = state => {
   return {chats: state.chats}
 }
