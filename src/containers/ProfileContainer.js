@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactPlayer from "react-player"
 import BioSection from "../components/BioSection";
 import { Grid, Segment } from "semantic-ui-react";
 
@@ -16,7 +16,9 @@ function ProfileContainer(props) {
             
             <Segment>
               {/* <RunsSection handleLogin={props.handleLogin} runs={user.runs} /> */}
-              "NOTHING HERE"
+              <ReactPlayer
+                url="https://soundcloud.com/glennmorrison/beethoven-moonlight-sonata"
+              />
             </Segment>
           </Grid.Column>
         </Grid.Row>

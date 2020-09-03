@@ -5,26 +5,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/manageUser';
 import messagesReducer from './reducers/manageMessages';
 import chatsReducer from './reducers/manageChats'
 import subscriptionsReducer from './reducers/manageSubscriptions';
+import discoveryReducer from './reducers/manageDiscovery';
 
 const rootReducer = combineReducers({
   user: userReducer,
   messages: messagesReducer,
   chats: chatsReducer,
-  subscriptions: subscriptionsReducer
+  subscriptions: subscriptionsReducer,
+  discovery: discoveryReducer
 })
+
 const store = createStore(
-  rootReducer, compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ 
-    && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  rootReducer,
+    applyMiddleware(thunk)
 )
+
+// compose(
+//   applyMiddleware(thunk),
+//   window.__REDUX_DEVTOOLS_EXTENSION__ 
+//   && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
 
 ReactDOM.render(
   <Provider store={store}>
