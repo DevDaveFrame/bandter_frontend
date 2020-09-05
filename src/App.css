@@ -52,10 +52,7 @@ body {
 .match-container {
   padding: 0;
   margin: 0;
-  border-radius: 10px;
-  background: #c94b4b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4b134f6d, #c94b4b74);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #63153285, #c94b4b79); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgba(255, 255, 255, 0.228);
   height: 100%;
   width: 33%;
   display: flex;
@@ -67,16 +64,12 @@ body {
 .chat-box {
   margin: 0;
   padding: 0;
-  border-radius: 10px;
   width: 66%;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .chat-display {
-  border: 2px solid #DB2829;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
   border-bottom-width: 0;
   padding: 1.5rem;
   height: 90%;
@@ -96,23 +89,19 @@ body {
 }
 
 .chat-input {
-  box-shadow: none;
-  border: 2px solid #DB2829;
+  border: 0;
   border-right-width: 1px;
   padding-left: 2rem;
   width: 80%;
-  border-bottom-left-radius: 10px;
   outline: none;
 }
 
 .send {
   margin: 0;
   width: 20%;
-  border-bottom-right-radius: 10px;
-  border-left-width: 1px;
-  border: 2px solid #DB2829;
-  background: none;
-  color: #DB2829;
+  border: 0;
+  background: rgba(103, 157, 238, 0.461);
+  color: #dc3f4f;
   font-weight: 700;
   outline: none;
 }
@@ -172,10 +161,7 @@ body {
   margin: 1px;
 }
 
-.match-box:first-of-type {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
+
 
 .match-thumb {
   display: block;
