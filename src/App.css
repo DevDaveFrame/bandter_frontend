@@ -196,4 +196,12 @@ body {
   font-size: .75rem;
 }
 
+div.ui.bottom.attached.segment.auth-modal {
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 

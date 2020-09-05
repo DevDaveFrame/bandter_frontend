@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Menu, Segment, MenuItem } from 'semantic-ui-react'
+import {Grid, Modal, Menu, Segment, MenuItem } from 'semantic-ui-react'
 import Signup from './Signup'
 import Login from './Login'
 
@@ -28,7 +28,8 @@ function AuthModal(props) {
           onClick={() => setTab('signup')}
           > Sign Up </Menu.Item>
       </Menu>
-      <Segment attached='bottom'>
+      
+      <Segment className="auth-modal" attached='bottom'>
         {tab === 'login' ? <Login /> : <Signup /> }
       </Segment>
     </Modal>

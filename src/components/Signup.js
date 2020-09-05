@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
+import { Button, Form, Container, Header, Grid, GridColumn } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/userActions'
 
@@ -7,10 +7,10 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Header as='h2'>Sign Up</Header>
-        <Form onSubmit={(e) => this.handleSubmit(e)}>
-          <Form.Group>
+      <>
+        <Header centered as='h2'>Sign Up</Header>
+        <Form centered onSubmit={(e) => this.handleSubmit(e)}>
+          <Form.Group centered>
             <Form.Input onChange={(e) => this.handleChange(e)} name="first_name" required={true} label="First Name" type="text" />
             <Form.Input onChange={(e) => this.handleChange(e)} name="last_name" required={true} label="Last Name" type="text" />
           </Form.Group>
@@ -19,9 +19,9 @@ class Signup extends React.Component {
           required={true} label='Enter Password' type='password' />
           <Form.Input onChange={(e) => this.handleChange(e)} name="password_confirmation" 
           required={true} label='Confirm Password' type='password' />
-          <Button type='submit'>Submit</Button>
+          <Button type='submit'>Sign Up</Button>
         </Form>
-      </Container>
+      </>
       )
     }
 
