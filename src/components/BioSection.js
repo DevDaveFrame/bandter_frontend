@@ -8,6 +8,7 @@ function BioSection(props) {
   
   return (
     <div className='biosection'>
+      <h2 class='bio-name'>{user.name}</h2>
 
     </div>
   )

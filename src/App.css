@@ -35,9 +35,8 @@ div.ui.red.inverted.menu.navbar a.header.item{
 }
 
 body {
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #101012;
+  /* background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(37,37,37,1) 50%, rgba(0,0,0,1) 100%); */
   font-family: 'Inconsolata', monospace;
 }
 
@@ -208,7 +207,7 @@ div.ui.bottom.attached.segment.auth-modal {
 .profile-banner img {
   position: relative;
   top: 11vh;
-  left: 20vw;
+  left: 22%;
   max-width: 150px;
   box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
   -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
@@ -229,15 +228,25 @@ div.ui.bottom.attached.segment.auth-modal {
 }
 
 .biosection {
+  padding: 10px;
   justify-self: flex-start;
   width: 30%;
   height: 70vh;
+  border-right: 1px solid rgba(225, 225, 225, 0.5);
 }
 
 div.ui.profile-menu.menu {
   border-radius: 0;
-  background-color: #0F2027;
+  background-color: #000000;
   color: #c94b4b;
+  padding-left: 17%;
+}
+
+.bio-name {
+  color: white;
+  margin-left: 4vw;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 300;
 }
 
 
