@@ -23,7 +23,6 @@ class App extends React.Component {
     return (
       <Router>
         <NavBar />
-        <Container>
           <Route
             exact
             path="/"
@@ -57,7 +56,6 @@ class App extends React.Component {
                 : (rProps) => (<ChatContainer {...rProps}/>)
             }
           />
-        </Container>
       </Router>
     );
   }
