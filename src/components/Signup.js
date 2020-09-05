@@ -10,7 +10,10 @@ class Signup extends React.Component {
       <Container>
         <Header as='h2'>Sign Up</Header>
         <Form onSubmit={(e) => this.handleSubmit(e)}>
-          <Form.Input onChange={(e) => this.handleChange(e)} name="name" required={true} label="Name" type="text" />
+          <Form.Group>
+            <Form.Input onChange={(e) => this.handleChange(e)} name="first_name" required={true} label="First Name" type="text" />
+            <Form.Input onChange={(e) => this.handleChange(e)} name="last_name" required={true} label="Last Name" type="text" />
+          </Form.Group>
           <Form.Input onChange={(e) => this.handleChange(e)} name="email" required={true} label="Email" type="email" />
           <Form.Input onChange={(e) => this.handleChange(e)} name="password" 
           required={true} label='Enter Password' type='password' />
