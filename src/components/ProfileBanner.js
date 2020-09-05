@@ -1,13 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import logo from "../placeholder.png"
+import ProfilePicUpdate from './ProfilePicUpdate';
+
 
 function ProfileBanner(props) {
   const user = props.user;
+  console.log(user)
   
   return (
     <div className="profile-banner">
-      <img src={ user.image_url || logo } alt={user.name} />
+      <ProfilePicUpdate />
+      <img src={ user.profile_picture || logo } alt={user.name} />
     </div>
   )
 }
