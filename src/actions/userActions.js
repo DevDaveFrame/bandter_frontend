@@ -36,7 +36,6 @@ export function loginUser(login){
 }
 
 export function updateUser(data) {
-  console.log('data: ', data);
   return {
     type: "UPDATE_USER",
     user: data.user.data.attributes

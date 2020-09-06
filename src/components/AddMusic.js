@@ -5,7 +5,6 @@ import {Modal, Form, Button} from "semantic-ui-react"
 
 
 function AddMusic (props) {
-  console.log('props: ', props);
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState("");
   const [uploadable, setUploadable] = useState(null)
@@ -19,7 +18,6 @@ function AddMusic (props) {
       uploadable.name
     )
     formData.append('user_id', props.user.id)
-    console.log(formData);
     let request = {
       method: "POST",
       // headers: {

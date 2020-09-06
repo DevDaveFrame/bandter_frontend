@@ -5,7 +5,6 @@ import {Modal, Form, Button, Icon, Image} from "semantic-ui-react"
 
 
 function ProfilePicUpdate (props) {
-  console.log('props: ', props);
   const [open, setOpen] = useState(false)
   const [uploadable, setUploadable] = useState(null)
 

@@ -6,7 +6,14 @@ import {beginSearch} from '../actions/discoverActions'
 function DiscoverFilters (props) {
   return (
     <Form>
-      <Form.Dropdown />
+      <Form.Dropdown 
+        placeholder='State'
+        fluid
+        multiple
+        search
+        selection
+        options={props.genres}
+      />
       <input type="range" />
       <Form.Group>
         <Form.Radio />
@@ -22,7 +29,8 @@ const mapStateToProps = state => {
   return { 
     user: state.user,
     chats: state.chats,
-    discovery: state.discovery
+    discovery: state.discovery,
+    genres: state.genres
   };
 };
 

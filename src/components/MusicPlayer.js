@@ -4,7 +4,6 @@ import Waveform from "../components/Waveform";
 import Playlist from "../components/Playlist";
 
 function MusicPlayer(props) {
-  console.log('props: ', props);
   const [selectedTrack, setSelectedTrack] = useState(props.songs[0] ? props.songs[0] : null);
   return (
     <div className='music-player'>

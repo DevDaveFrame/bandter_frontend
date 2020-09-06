@@ -4,7 +4,6 @@ export default function userReducer(state = {}, action) {
     case 'START_LOGGING_IN':
       return {...state, loggedIn: true}
     case "LOGIN_USER":
-    console.log("from backend: " + action.data)
     user = action.data.user.data.attributes
     localStorage.token = action.data.token;
     localStorage.current = user.id

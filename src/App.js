@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { fetchGenres } from './actions/genreActions'
 import { setUser, logoutUser } from './actions/userActions'
 import './App.css';
 import NavBar from './components/NavBar';
@@ -16,6 +17,7 @@ class App extends React.Component {
     if (localStorage.token) {
       this.props.setUser()
     }
+    this.props.fetchGenres()
   }
 
   render() {
@@ -66,4 +68,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setUser, logoutUser })(App);
+export default connect(mapStateToProps, { setUser, logoutUser, fetchGenres })(App);
