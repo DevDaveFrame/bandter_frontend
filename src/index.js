@@ -13,6 +13,7 @@ import chatsReducer from './reducers/manageChats'
 import subscriptionsReducer from './reducers/manageSubscriptions';
 import discoveryReducer from './reducers/manageDiscovery';
 import songsReducer from './reducers/manageSongs';
+import genreReducer from './reducers/manageGenres';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   chats: chatsReducer,
   subscriptions: subscriptionsReducer,
   discovery: discoveryReducer,
-  songs: songsReducer
+  songs: songsReducer,
+  genres: genreReducer
 })
 
 const store = createStore(

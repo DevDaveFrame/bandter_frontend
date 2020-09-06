@@ -4,6 +4,7 @@ import {Form} from 'semantic-ui-react';
 import {beginSearch} from '../actions/discoverActions'
 
 function DiscoverFilters (props) {
+  let genreOptions = props.genres.map(genre => ({key: genre.id, text: genre.name, value: genre.id }))
   return (
     <Form>
       <Form.Dropdown 
@@ -12,7 +13,7 @@ function DiscoverFilters (props) {
         multiple
         search
         selection
-        options={props.genres}
+        options={genreOptions}
       />
       <input type="range" />
       <Form.Group>
