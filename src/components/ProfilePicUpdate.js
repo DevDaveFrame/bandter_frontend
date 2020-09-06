@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import {Modal, Form, Button, Icon} from "semantic-ui-react"
+import {Modal, Form, Button, Icon, Image} from "semantic-ui-react"
 
 
 function ProfilePicUpdate (props) {
@@ -17,20 +17,16 @@ function ProfilePicUpdate (props) {
     e.preventDefault()
     const formData = new FormData()
     formData.append(
-      "profile-picture",
+      "profile_picture",
       uploadable,
       uploadable.name
     )
     console.log(uploadable);
     let request = {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(formData)
+      body: formData
     }
-    fetch(`http://localhost:3000/users/${props.user.id}/profile_picture`, request)
+    fetch(`http://localhost:3000/api/v1/users/${props.user.id}`, request)
     .then(r => r.json())
     .then(() => setOpen(false))
     .catch(console.log)
@@ -46,9 +42,10 @@ function ProfilePicUpdate (props) {
       trigger={<Icon link={true} name='setting'/>}
     >
         <Modal.Content>
+          <Image src={user.img_url} />
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Input onChange={(e) => handleChange(e)} 
-            name="name" required={true} label="Name" 
+            name="profile_picture" required={true} label="Profile Picture" 
             type="file" />
             <Button type='submit'>Submit</Button>
           </Form>

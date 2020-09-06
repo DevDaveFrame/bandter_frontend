@@ -11,7 +11,7 @@ function ProfileBanner(props) {
   return (
     <div className="profile-banner">
       <ProfilePicUpdate />
-      <img src={ user.profile_picture || logo } alt={user.name} />
+      <img src={ user.img_url || logo } alt={user.name} />
     </div>
   )
 }
