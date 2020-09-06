@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
-import { ProfileMusicContainer } from '../containers/ProfileMusicContainer'
+import ProfileMusicContainer from '../containers/ProfileMusicContainer'
 import ProfilePhotoContainer from '../containers/ProfilePhotoContainer'
 
 export const ProfileContent = () => {
