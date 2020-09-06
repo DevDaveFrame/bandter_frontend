@@ -7,7 +7,7 @@ import ProfilePhotoContainer from '../containers/ProfilePhotoContainer'
 export const ProfileContent = () => {
 const [activeItem, setActiveItem] = useState('music')
 const handleItemClick = (e, { name }) => setActiveItem(name)
-const switchProfileDisplay = () => {
+const switchProfileDisplay = (activeItem) => {
   switch (activeItem) {
     case 'music':
       return <ProfileMusicContainer />;
@@ -40,7 +40,7 @@ const switchProfileDisplay = () => {
             // position='right'
           />
       </Menu>
-      {switchProfileDisplay()}
+      {switchProfileDisplay(activeItem)}
     </div>
   )
 }

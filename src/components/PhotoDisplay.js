@@ -5,9 +5,9 @@ function PhotoDisplay(props) {
   const {photo} = props
   return (
     <Modal
-    trigger={<img className='photo-thumb' src={photo}/>}
+    trigger={<img className='photo-thumb' src={photo} alt='fix this'/>}
     >
-      <img className='photo-display' src={photo}/>
+      <img className='photo-display' src={photo} alt='fix this'/>
     </Modal>
   )
 }
