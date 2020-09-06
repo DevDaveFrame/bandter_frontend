@@ -12,13 +12,15 @@ import messagesReducer from './reducers/manageMessages';
 import chatsReducer from './reducers/manageChats'
 import subscriptionsReducer from './reducers/manageSubscriptions';
 import discoveryReducer from './reducers/manageDiscovery';
+import songsReducer from './reducers/manageSongs';
 
 const rootReducer = combineReducers({
   user: userReducer,
   messages: messagesReducer,
   chats: chatsReducer,
   subscriptions: subscriptionsReducer,
-  discovery: discoveryReducer
+  discovery: discoveryReducer,
+  songs: songsReducer
 })
 
 const store = createStore(

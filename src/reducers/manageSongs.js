@@ -1,4 +1,4 @@
-export default function discoveryReducer(state = [], action) {
+export default function songsReducer(state = [], action) {
   switch (action.type) {
     case 'START_SEARCH':
       return state;

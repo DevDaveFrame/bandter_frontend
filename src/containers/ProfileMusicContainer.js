@@ -1,21 +1,26 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import AddMusic from '../components/AddMusic'
+import React, {useState} from 'react';
+import { connect } from 'react-redux';
+import AddMusic from '../components/AddMusic';
+import Waveform from "../components/Waveform";
+import Playlist from "../components/Playlist";
 
-export const ProfileMusicContainer = () => {
+export const ProfileMusicContainer = (props) => {
+  const [selectedTrack, setSelectedTrack] = useState(props.songs[0]);
   return (
     <div className='profile-music-container'>
+      <Waveform url={selectedTrack.url} />
+      <Playlist
+        tracks={props.songs}
+        selectedTrack={selectedTrack}
+        setSelectedTrack={setSelectedTrack}
+      />
       <AddMusic />
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  
+  songs: state.songs
 })
 
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileMusicContainer)
+export default connect(mapStateToProps)(ProfileMusicContainer)
