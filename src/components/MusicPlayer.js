@@ -8,7 +8,7 @@ function MusicPlayer(props) {
   const [selectedTrack, setSelectedTrack] = useState(props.songs[0] ? props.songs[0] : null);
   return (
     <div className='music-player'>
-      <Waveform url={selectedTrack.content} />
+      <Waveform audio={selectedTrack.attributes.description} />
       <Playlist
         tracks={props.songs}
         selectedTrack={selectedTrack}

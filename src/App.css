@@ -252,7 +252,26 @@ div.ui.profile-menu.menu {
 .profile-music-container {
   padding: 20px;
 }
+.controls {
+  color: azure;
+}
 
+
+.controls button {
+  padding: 15px;
+  border-radius: 35px;
+  border: 0;
+  background: #93291F;
+}
+
+.playlist-item {
+  color: azure;
+  min-height: 30px;
+}
+
+.playlist-item.selected {
+  background-color: #3f3f3f82
+}
 
 
 

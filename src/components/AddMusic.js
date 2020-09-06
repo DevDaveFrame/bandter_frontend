@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addSong } from "../actions/songActions"
-import {Modal, Form, Button, Icon, Image} from "semantic-ui-react"
+import {Modal, Form, Button} from "semantic-ui-react"
 
 
 function AddMusic (props) {
@@ -45,7 +45,7 @@ function AddMusic (props) {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<a>ADD A SONG</a>}
+      trigger={<Button>ADD A SONG</Button>}
     >
         <Modal.Content>
           <Form onSubmit={(e) => handleSubmit(e)}>

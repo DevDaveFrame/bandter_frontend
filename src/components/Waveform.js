@@ -17,7 +17,7 @@ const formWaveSurferOptions = ref => ({
   partialRender: true
 });
 
-export default function Waveform({ url }) {
+export default function Waveform({ audio }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
   const [playing, setPlay] = useState(false);
@@ -31,7 +31,7 @@ export default function Waveform({ url }) {
     const options = formWaveSurferOptions(waveformRef.current);
     wavesurfer.current = WaveSurfer.create(options);
 
-    wavesurfer.current.load(url);
+    wavesurfer.current.load(audio);
 
     wavesurfer.current.on("ready", function() {
       // https://wavesurfer-js.org/docs/methods.html
@@ -48,7 +48,7 @@ export default function Waveform({ url }) {
     // Removes events, elements and disconnects Web Audio nodes.
     // when component unmount
     return () => wavesurfer.current.destroy();
-  }, [url]);
+  }, [audio]);
 
   const handlePlayPause = () => {
     setPlay(!playing);
@@ -70,6 +70,7 @@ export default function Waveform({ url }) {
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
         <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
+        <label htmlFor="volume">Volume</label>
         <input
           type="range"
           id="volume"
@@ -82,7 +83,6 @@ export default function Waveform({ url }) {
           onChange={onVolumeChange}
           defaultValue={volume}
         />
-        <label htmlFor="volume">Volume</label>
       </div>
     </div>
   );
