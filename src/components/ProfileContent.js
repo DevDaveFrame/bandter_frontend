@@ -1,10 +1,22 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
+import { ProfileMusicContainer } from '../containers/ProfileMusicContainer'
+import ProfilePhotoContainer from '../containers/ProfilePhotoContainer'
 
 export const ProfileContent = () => {
 const [activeItem, setActiveItem] = useState('music')
 const handleItemClick = (e, { name }) => setActiveItem(name)
+const switchProfileDisplay = () => {
+  switch (activeItem) {
+    case 'music':
+      return <ProfileMusicContainer />;
+    case 'photos':
+      return <ProfilePhotoContainer />;
+    default:
+      break;
+  }
+}
 
   return (
     <div className="profile-content">
@@ -28,16 +40,15 @@ const handleItemClick = (e, { name }) => setActiveItem(name)
             // position='right'
           />
       </Menu>
+      {switchProfileDisplay()}
     </div>
   )
 }
+
+
 
 const mapStateToProps = (state) => ({
   
 })
 
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContent)
+export default connect(mapStateToProps)(ProfileContent)

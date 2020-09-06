@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser, logoutUser } from './actions/userActions'

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Modal, Menu, Segment, MenuItem } from 'semantic-ui-react'
+import { Modal, Menu, Segment, MenuItem } from 'semantic-ui-react'
 import Signup from './Signup'
 import Login from './Login'
 

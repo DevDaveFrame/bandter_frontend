@@ -6,8 +6,6 @@ import ProfilePicUpdate from './ProfilePicUpdate';
 
 function ProfileBanner(props) {
   const user = props.user;
-  console.log(user)
-  
   return (
     <div className="profile-banner">
       <ProfilePicUpdate />

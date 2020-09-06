@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { updateUser } from "../actions/userActions"
 import {Modal, Form, Button, Icon, Image} from "semantic-ui-react"
 
 
@@ -28,8 +29,13 @@ function ProfilePicUpdate (props) {
     }
     fetch(`http://localhost:3000/api/v1/users/${props.user.id}`, request)
     .then(r => r.json())
-    .then(() => setOpen(false))
+    .then(data => handleResponse(data))
     .catch(console.log)
+  }
+
+  const handleResponse = (data) => {
+    props.updateUser(data)
+    setOpen(false)
   }
 
   return (
@@ -58,8 +64,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps)(ProfilePicUpdate)
+export default connect(mapStateToProps, {updateUser})(ProfilePicUpdate)

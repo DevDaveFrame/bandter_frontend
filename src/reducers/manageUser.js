@@ -14,13 +14,17 @@ export default function userReducer(state = {}, action) {
         loggedIn: true
       };
     case "SET_USER":
-      console.log(action)
       user = action.data.user.data.attributes
       return {
         ...state,
         ...user,
         loggedIn: true
       };
+      case "UPDATE_USER":
+        return {
+          ...state,
+          ...user
+        };
     case "LOGOUT_USER":
       localStorage.clear()
       return {
