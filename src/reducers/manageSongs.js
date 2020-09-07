@@ -3,8 +3,6 @@ export default function songsReducer(state = [], action) {
     case 'SET_USER':
       let songs = action.data.user.included.filter(included => included.type === "song");
       return [...state, ...songs];
-    case "LOAD_SEARCH":
-      return [...state, ...action.users.data];
     case "LOGOUT_USER":
       return [];
     default:

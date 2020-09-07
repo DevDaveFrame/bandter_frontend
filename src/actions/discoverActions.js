@@ -1,5 +1,6 @@
 export function beginSearch (formObj) {
   return (dispatch) => {
+    dispatch({type: "START_SEARCH"});
     let request = {
       method: "POST",
       headers: {
@@ -17,7 +18,7 @@ export function beginSearch (formObj) {
 
 export function handleMatch(){
   return (dispatch) => {
-    dispatch({type: 'START_LOGGING_IN'});
+    dispatch({type: 'START_FRIENDING'});
     let request = {
       method: "POST",
       headers: {
@@ -26,7 +27,7 @@ export function handleMatch(){
       },
       body: JSON.stringify()
     }
-    fetch(`http://localhost:3000/api/v1/login`, request)
+    fetch(`http://localhost:3000/api/v1/friend_request`, request)
     .then(r => r.json())
     .then(data => dispatch({type: 'LOGIN_USER', data}))
   }

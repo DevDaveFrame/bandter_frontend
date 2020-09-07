@@ -276,6 +276,7 @@ div.ui.profile-menu.menu {
 }
 
 .discovery-container {
+  color: white;
   width: 100vw;
   display: flex;
   flex-flow: row nowrap;
@@ -291,8 +292,65 @@ div.ui.profile-menu.menu {
   height: 100%;
   text-align: center;
   color: white;
+  padding: 20px;
 }
 
 .discovery-filters h2{
   margin: 1rem 0;
+}
+
+.discover-card {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+.discover-bio {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.discover-user {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.discover-user {
+  width: 150px;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.discover-user img {
+  max-width: 150px;
+}
+
+.discover-user h4 {
+  margin: 2px;
+}
+
+.discover-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 150px;
+}
+.discover-interests {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: stretch;
+  min-width: 150px;
+}
+
+.discover-interests span {
+  background: gray;
+  padding: 3px 5px;
+  margin: 3px;
+  border-radius: 10px;
 }

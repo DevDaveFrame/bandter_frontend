@@ -3,8 +3,6 @@ export default function genreReducer(state = [], action) {
     case 'CACHE_GENRES':
       console.log(action.genres)
       return [...state, ...action.genres];
-    case "LOAD_SEARCH":
-      return [...state, ...action.users.data];
     case "LOGOUT_USER":
       return [];
     default:

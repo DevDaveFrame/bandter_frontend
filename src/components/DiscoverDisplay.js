@@ -8,7 +8,7 @@ function DiscoverDisplay (props) {
   
   return (
     <Container >
-      {props.discovery.map(user => <DiscoverUser key={user.if} user={user.attributes} />)}
+      {props.discovery.map(user => <DiscoverUser key={user.id} discovered_user={user} />)}
     </Container>
   )
 }

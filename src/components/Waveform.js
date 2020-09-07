@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import WaveSurfer from "wavesurfer.js";
 
 const formWaveSurferOptions = ref => ({
   container: ref,
   waveColor: "#eee",
-  progressColor: "OrangeRed",
+  progressColor: "#93291F",
   cursorColor: "OrangeRed",
-  barWidth: 3,
-  barRadius: 3,
+  barWidth: 2,
+  barRadius: 2,
   responsive: true,
-  height: 150,
+  height: 100,
   // If true, normalize by the maximum peak instead of 1.0.
   normalize: true,
   // Use the PeakCache to improve rendering speed of large waveforms.
