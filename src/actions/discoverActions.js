@@ -16,22 +16,23 @@ export function beginSearch (formObj) {
   } 
 };
 
-export function handleMatch(){
+export function handleMatch (friendObj) {
   return (dispatch) => {
-    dispatch({type: 'START_FRIENDING'});
+    dispatch({type: "GO_NOWHERE"});
+    console.log("HIT");
     let request = {
       method: "POST",
       headers: {
       "Content-Type": "application/json",
-      Accept: "application/json"
+      Authorization: `Bearer ${localStorage.token}`
       },
-      body: JSON.stringify()
+      body: JSON.stringify(friendObj)
     }
     fetch(`http://localhost:3000/api/v1/friend_request`, request)
     .then(r => r.json())
-    .then(data => dispatch({type: 'LOGIN_USER', data}))
+    .then(data => dispatch({type: 'DO_NOTHING', data}))
   }
-}
+};
 
 export function logoutUser() {
   return {

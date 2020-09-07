@@ -1,24 +1,25 @@
 export default function chatsReducer(state = {current: {}, matches: []}, action) {
-  // let idx;
+  let matches;
   switch (action.type) {
     case "LOGIN_USER":
+      matches = action.data.user.included.filter(included => included.type === "match_chat");
       return {
         ...state,
         current: {},
-        matches: action.data.user.included
+        matches: matches
       };
       case "SET_USER":
+        matches = action.data.user.included.filter(included => included.type === "match_chat");
         return {
           ...state,
           current: {},
-          matches: action.data.user.included
+          matches: matches
         };
     case "SET_CURRENT_CHAT":
       return {
         ...state,
         current: action.current};
     case "LOGOUT_USER":
-    localStorage.clear()
     return {current: {}, matches: []};
     default:
       return state;

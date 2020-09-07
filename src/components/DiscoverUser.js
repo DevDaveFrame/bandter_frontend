@@ -22,7 +22,7 @@ function DiscoverUser (props) {
           <h4>{`${user.first_name} ${user.last_name}`}</h4>
         </div>
         <div className="discover-info" >
-        <h5>BIO</h5>
+        <h5>About Me: </h5>
         <p>{user.bio}</p>
         </div>
         <div className="discover-interests">
