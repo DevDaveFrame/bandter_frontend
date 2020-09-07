@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchGenres } from './actions/genreActions'
+import { fetchInstruments } from './actions/instrumentActions'
 import { setUser, logoutUser } from './actions/userActions'
 import './App.css';
 import NavBar from './components/NavBar';
@@ -18,6 +19,7 @@ class App extends React.Component {
       this.props.setUser()
     }
     this.props.fetchGenres()
+    this.props.fetchInstruments()
   }
 
   render() {
@@ -68,4 +70,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setUser, logoutUser, fetchGenres })(App);
+export default connect(mapStateToProps, { setUser, logoutUser, fetchGenres, fetchInstruments })(App);

@@ -14,6 +14,7 @@ import subscriptionsReducer from './reducers/manageSubscriptions';
 import discoveryReducer from './reducers/manageDiscovery';
 import songsReducer from './reducers/manageSongs';
 import genreReducer from './reducers/manageGenres';
+import instrumentsReducer from './reducers/manageInstruments';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   subscriptions: subscriptionsReducer,
   discovery: discoveryReducer,
   songs: songsReducer,
-  genres: genreReducer
+  genres: genreReducer,
+  instruments: instrumentsReducer
 })
 
 const store = createStore(

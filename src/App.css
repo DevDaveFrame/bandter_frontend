@@ -251,6 +251,7 @@ div.ui.profile-menu.menu {
 
 .profile-music-container {
   padding: 20px;
+  text-align: center;
 }
 .controls {
   color: azure;
@@ -258,6 +259,7 @@ div.ui.profile-menu.menu {
 
 
 .controls button {
+  margin-right: 30px;
   padding: 15px;
   border-radius: 35px;
   border: 0;
@@ -273,5 +275,24 @@ div.ui.profile-menu.menu {
   background-color: #3f3f3f82
 }
 
+.discovery-container {
+  width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
 
+.discovery-filters {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  color: white;
+}
 
+.discovery-filters h2{
+  margin: 1rem 0;
+}

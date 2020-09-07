@@ -5,10 +5,10 @@ import DiscoverDisplay from '../components/DiscoverDisplay'
 function DiscoverContainer () {
 
   return (
-    <>
+    <div className='discovery-container'>
       <DiscoverFilters />
       <DiscoverDisplay />
-    </>
+    </div>
   )
 
 }
