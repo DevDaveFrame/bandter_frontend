@@ -42,6 +42,13 @@ export function updateUser(data) {
   }
 }
 
+export function addSong (song) {
+  return {
+    type: "ADD_SONG",
+    song: song
+  }
+}
+
 export function logoutUser() {
   return {
     type: 'LOGOUT_USER',

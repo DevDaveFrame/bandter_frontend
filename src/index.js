@@ -13,7 +13,6 @@ import messagesReducer from './reducers/manageMessages';
 import chatsReducer from './reducers/manageChats'
 import subscriptionsReducer from './reducers/manageSubscriptions';
 import discoveryReducer from './reducers/manageDiscovery';
-import songsReducer from './reducers/manageSongs';
 import genreReducer from './reducers/manageGenres';
 import instrumentsReducer from './reducers/manageInstruments';
 
@@ -24,7 +23,6 @@ const rootReducer = combineReducers({
   chats: chatsReducer,
   subscriptions: subscriptionsReducer,
   discovery: discoveryReducer,
-  songs: songsReducer,
   genres: genreReducer,
   instruments: instrumentsReducer
 })

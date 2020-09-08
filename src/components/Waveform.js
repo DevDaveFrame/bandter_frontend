@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import {Progress} from 'semantic-ui-react';
 import WaveSurfer from "wavesurfer.js";
 
 const formWaveSurferOptions = ref => ({
@@ -19,6 +20,8 @@ const formWaveSurferOptions = ref => ({
 export default function Waveform({ audio }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [percent, setPercent] = useState(0);
   const [playing, setPlay] = useState(false);
   const [volume, setVolume] = useState(0.5);
 
@@ -32,10 +35,16 @@ export default function Waveform({ audio }) {
 
     wavesurfer.current.load(audio);
 
+    wavesurfer.current.on("loading", function(progress) {
+      setLoading(true);
+      setPercent(progress);
+    });
+
     wavesurfer.current.on("ready", function() {
       // https://wavesurfer-js.org/docs/methods.html
       // wavesurfer.current.play();
       // setPlay(true);
+      setLoading(false);
 
       // make sure object stillavailable when file loaded
       if (wavesurfer.current) {
@@ -67,6 +76,7 @@ export default function Waveform({ audio }) {
   return (
     <div>
       <div id="waveform" ref={waveformRef} />
+      {loading === true ? <Progress percent={percent} color='red'/> : null} 
       <div className="controls">
         <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
         <label htmlFor="volume">Volume</label>

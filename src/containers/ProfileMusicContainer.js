@@ -6,12 +6,12 @@ import MusicPlayer from '../components/MusicPlayer'
 function ProfileMusicContainer(props) {
   return (
     <div className='profile-music-container'>
-      {props.songs[0] ? <MusicPlayer songs={props.songs}/> : null}
+      {props.user.songs[0] ? <MusicPlayer songs={props.user.songs}/> : null}
       <AddMusic />
     </div>
   )
 }
 const mapStateToProps = (state) => ({
-  songs: state.songs
+  user: state.user
 })
 export default connect(mapStateToProps)(ProfileMusicContainer)

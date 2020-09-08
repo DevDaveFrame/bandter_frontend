@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 export const ProfileFriendContainer = (props) => {
   return (
     <div>
-      FRENDS
+      <div>
+        {props.friends.friends.map(friend => <h2>{friend.name}</h2>)}
+      </div>
     </div>
   )
 }

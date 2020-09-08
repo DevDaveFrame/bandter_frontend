@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { addSong } from "../actions/songActions"
+import { addSong } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
 
