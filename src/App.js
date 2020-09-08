@@ -7,6 +7,7 @@ import { setUser, logoutUser } from './actions/userActions'
 import './App.css';
 import NavBar from './components/NavBar';
 import Welcome from "./containers/Welcome";
+import FriendsContainer from './containers/FriendsContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import DiscoverContainer from './containers/DiscoverContainer';
 import ChatContainer from './containers/ChatContainer';
@@ -36,6 +37,7 @@ class App extends React.Component {
             }
           />
           <Route
+            exact
             path="/profile"
             render={
               !this.props.user.loggedIn
@@ -57,6 +59,14 @@ class App extends React.Component {
               !this.props.user.loggedIn
                 ? () => <Redirect to="/" />
                 : (rProps) => (<ChatContainer {...rProps}/>)
+            }
+          />
+          <Route
+            path="/friends/:id"
+            render={
+              !this.props.user.loggedIn
+                ? () => <Redirect to="/" />
+                : (rProps) => (<FriendsContainer {...rProps}/>)
             }
           />
       </Router>

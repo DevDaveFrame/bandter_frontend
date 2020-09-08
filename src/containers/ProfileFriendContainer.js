@@ -1,20 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import {Link} from "react-router-dom";
 
 export const ProfileFriendContainer = (props) => {
   return (
     <div>
       <div>
-        {props.friends.friends.map(friend => <h2>{friend.name}</h2>)}
+        {props.user.friends.map(friend => <Link to={`/friends/${friend.id}`}>{friend.name}</Link>)}
       </div>
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-  friends: state.friends
-})
-
-
-export default connect(mapStateToProps)(ProfileFriendContainer)
+export default ProfileFriendContainer;

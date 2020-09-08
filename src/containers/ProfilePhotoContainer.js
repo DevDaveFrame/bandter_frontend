@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import PhotoDisplay from '../components/PhotoDisplay.js'
 
 function ProfilePhotoContainer (props) {
@@ -10,12 +9,4 @@ function ProfilePhotoContainer (props) {
   )
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user
-})
-
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePhotoContainer)
+export default ProfilePhotoContainer;

@@ -76,7 +76,7 @@ export default function Waveform({ audio }) {
   return (
     <div>
       <div id="waveform" ref={waveformRef} />
-      {loading === true ? <Progress percent={percent} color='red'/> : null} 
+      {loading === true ? <Progress percent={percent} color='red' /> : null} 
       <div className="controls">
         <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
         <label htmlFor="volume">Volume</label>

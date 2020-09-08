@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 function BioSection(props) {
   const user = props.user;
@@ -12,10 +11,4 @@ function BioSection(props) {
   )
 }
 
-const mapStateToProps = state => {
-  return { 
-    user: state.user
-  };
-};
-
-export default connect(mapStateToProps)(BioSection);
+export default BioSection;

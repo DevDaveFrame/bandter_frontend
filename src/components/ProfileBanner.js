@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import logo from "../placeholder.png"
 import ProfilePicUpdate from './ProfilePicUpdate';
 
@@ -14,10 +13,4 @@ function ProfileBanner(props) {
   )
 }
 
-const mapStateToProps = state => {
-  return { 
-    user: state.user
-  };
-};
-
-export default connect(mapStateToProps)(ProfileBanner);
+export default ProfileBanner;
