@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/manageUser';
+import friendsReducer from './reducers/manageFriends';
 import messagesReducer from './reducers/manageMessages';
 import chatsReducer from './reducers/manageChats'
 import subscriptionsReducer from './reducers/manageSubscriptions';
@@ -18,6 +19,7 @@ import instrumentsReducer from './reducers/manageInstruments';
 
 const rootReducer = combineReducers({
   user: userReducer,
+  friends: friendsReducer,
   messages: messagesReducer,
   chats: chatsReducer,
   subscriptions: subscriptionsReducer,

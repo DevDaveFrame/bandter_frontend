@@ -13,6 +13,7 @@ export default function userReducer(state = {}, action) {
         loggedIn: true
       };
     case "SET_USER":
+      console.log("user stuff: ", action);
       user = action.data.user.data.attributes
       return {
         ...state,

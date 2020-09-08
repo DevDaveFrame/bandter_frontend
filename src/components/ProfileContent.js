@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
 import ProfileMusicContainer from '../containers/ProfileMusicContainer'
 import ProfilePhotoContainer from '../containers/ProfilePhotoContainer'
+import ProfileFriendContainer from '../containers/ProfileFriendContainer'
 
 export const ProfileContent = () => {
 const [activeItem, setActiveItem] = useState('music')
@@ -13,6 +14,8 @@ const switchProfileDisplay = (activeItem) => {
       return <ProfileMusicContainer />;
     case 'photos':
       return <ProfilePhotoContainer />;
+    case 'friends':
+      return <ProfileFriendContainer />;
     default:
       break;
   }
@@ -34,8 +37,8 @@ const switchProfileDisplay = (activeItem) => {
             // position='right'
           />
           <Menu.Item
-            name='videos'
-            active={activeItem === 'videos'}
+            name='friends'
+            active={activeItem === 'friends'}
             onClick={handleItemClick}
             // position='right'
           />
