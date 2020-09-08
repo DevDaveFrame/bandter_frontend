@@ -1,12 +1,20 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import FriendCard from '../components/FriendCard'
 
 export const ProfileFriendContainer = (props) => {
   return (
-    <div>
-      <div>
-        {props.user.friends.map(friend => <Link to={`/friends/${friend.id}`}>{friend.name}</Link>)}
+    <div className="profile-friend-container">
+      <div className="friend-list">
+        <h2>Friends</h2>
+        {props.user.friends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
       </div>
+
+      {props.user.id === localStorage.current 
+      ? <div className="friend-requests">
+        <h2>Friend Requests</h2>
+        {props.user.friend_requests.map(request => <h3>{request.friender_id}</h3>)}
+      </div>
+      : null}
     </div>
   )
 }

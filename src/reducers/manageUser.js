@@ -2,6 +2,7 @@
 export default function userReducer(state = {}, action) {
   let user;
   let songs;
+  let friendRequests;
   switch (action.type) {
     case 'START_LOGGING_IN':
       return {...state, songs: [], loggedIn: true}
@@ -19,10 +20,12 @@ export default function userReducer(state = {}, action) {
     case "SET_USER":
       console.log("user stuff: ", action);
       user = action.data.user.data.attributes
+      friendRequests = user.friend_requests.data
       songs = action.data.user.included.filter(included => included.type === "song");
       return {
         ...state,
         ...user,
+        friend_requests: [...friendRequests],
         songs: [...songs],
         loggedIn: true
       };
