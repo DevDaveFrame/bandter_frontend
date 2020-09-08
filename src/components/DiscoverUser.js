@@ -14,7 +14,7 @@ function DiscoverUser (props) {
       <div className="discover-bio">
         <div className="friend-button">
           <Button 
-            onClick={() => handleMatch({friender_id: props.user.id, friendee_id: user.id})}
+            onClick={() => props.handleMatch({friender_id: props.user.id, friendee_id: user.id})}
           >Add Friend</Button>
         </div>
         <div className="discover-user">

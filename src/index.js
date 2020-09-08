@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/manageUser';
 import messagesReducer from './reducers/manageMessages';
@@ -29,14 +29,14 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-    applyMiddleware(thunk)
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ 
+    && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 )
 
-// compose(
-//   applyMiddleware(thunk),
-//   window.__REDUX_DEVTOOLS_EXTENSION__ 
-//   && window.__REDUX_DEVTOOLS_EXTENSION__()
-// )
+
 
 ReactDOM.render(
   <Provider store={store}>

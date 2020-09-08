@@ -18,7 +18,7 @@ export function beginSearch (formObj) {
 
 export function handleMatch (friendObj) {
   return (dispatch) => {
-    dispatch({type: "GO_NOWHERE"});
+    dispatch({type: "REMOVE_FRIENDEE", friendee_id: friendObj.friendee_id});
     console.log("HIT");
     let request = {
       method: "POST",
@@ -30,7 +30,7 @@ export function handleMatch (friendObj) {
     }
     fetch(`http://localhost:3000/api/v1/friend_request`, request)
     .then(r => r.json())
-    .then(data => dispatch({type: 'DO_NOTHING', data}))
+    .then(match => dispatch({type: 'ADD_MATCH', match}) )
   }
 };
 
