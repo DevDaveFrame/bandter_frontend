@@ -49,6 +49,42 @@ export function addSong (song) {
   }
 }
 
+export function updateInstrument(user, instruments) {
+  return (dispatch) => {
+    let request = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}` 
+      },
+      body: JSON.stringify({user_instrument: {user_id: user.id, instruments:[...instruments]}})
+    }
+    fetch(`http://localhost:3000/api/v1/users/${user.id}`, request)
+    .then(r => r.json())
+    .then(user => dispatch({type: "UPDATE_USER", user}))
+    .catch(console.log)
+  }
+}
+
+export function updateGenre(user, genres) {
+  return (dispatch) => {
+    let request = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}` 
+      },
+      body: JSON.stringify({user_genre: {user_id: user.id, genres: [...genres]}})
+    }
+    fetch(`http://localhost:3000/api/v1/users/${user.id}`, request)
+    .then(r => r.json())
+    .then(user => dispatch({type: "UPDATE_USER", user}))
+    .catch(console.log)
+  }
+}
+
 export function logoutUser() {
   return {
     type: 'LOGOUT_USER',
