@@ -6,7 +6,9 @@ function ProfileMusicContainer(props) {
   return (
     <div className='profile-music-container'>
       {props.user.songs && props.user.songs[0] ? <MusicPlayer songs={props.user.songs}/> : null}
-      <AddMusic />
+      {props.user.id == localStorage.current 
+      ? <AddMusic />
+      : null}
     </div>
   )
 }

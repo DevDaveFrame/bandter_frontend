@@ -47,10 +47,10 @@ function ProfilePicUpdate (props) {
       trigger={<Icon link={true} name='setting'/>}
     >
         <Modal.Content>
-          <Image src={props.user.img_url} />
+          <Image className="profile-pic-view" src={props.user.img_url} />
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Input onChange={(e) => handleChange(e)} 
-            name="profile_picture" required={true} label="Profile Picture" 
+            name="profile_picture" label="Profile Picture" 
             type="file" />
             <Button type='submit'>Submit</Button>
           </Form>

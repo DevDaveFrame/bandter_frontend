@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Progress} from 'semantic-ui-react';
+import {Progress, Icon} from 'semantic-ui-react';
 import WaveSurfer from "wavesurfer.js";
 
 const formWaveSurferOptions = ref => ({
@@ -7,10 +7,10 @@ const formWaveSurferOptions = ref => ({
   waveColor: "#eee",
   progressColor: "#93291F",
   cursorColor: "OrangeRed",
-  barWidth: 2,
-  barRadius: 2,
+  barWidth: 5,
+  barRadius: 5,
   responsive: true,
-  height: 100,
+  height: 75,
   // If true, normalize by the maximum peak instead of 1.0.
   normalize: true,
   // Use the PeakCache to improve rendering speed of large waveforms.
@@ -78,20 +78,22 @@ export default function Waveform({ audio }) {
       <div id="waveform" ref={waveformRef} />
       {loading === true ? <Progress percent={percent} color='red' /> : null} 
       <div className="controls">
-        <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
-        <label htmlFor="volume">Volume</label>
-        <input
-          type="range"
-          id="volume"
-          name="volume"
-          // waveSurfer recognize value of `0` same as `1`
-          //  so we need to set some zero-ish value for silence
-          min="0.01"
-          max="1"
-          step=".025"
-          onChange={onVolumeChange}
-          defaultValue={volume}
-        />
+        <button onClick={handlePlayPause}>{!playing ?<Icon size="large" fitted name='play'/>:<Icon size="large" fitted name='pause'/>}</button>
+        <div className="volume-controls">
+          <label htmlFor="volume">Volume: </label>
+          <input
+            type="range"
+            id="volume"
+            name="volume"
+            // waveSurfer recognize value of `0` same as `1`
+            //  so we need to set some zero-ish value for silence
+            min="0.01"
+            max="1"
+            step=".025"
+            onChange={onVolumeChange}
+            defaultValue={volume}
+          />
+        </div>
       </div>
     </div>
   );
