@@ -438,6 +438,30 @@ div.ui.profile-menu.menu {
   margin-right: 1rem;
 }
 
+.friend-request {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.friend-request button{
+  margin-top: .8rem;
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 10px;
+  padding: .5rem;
+  align-self: center;
+}
+
+.friend-request-thumb {
+  height: 100%;
+  width: auto;
+  margin-right: 1rem;
+}
+
 .profile-pic-view {
   max-height: 60vh;
   margin: auto;

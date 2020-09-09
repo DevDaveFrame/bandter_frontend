@@ -20,6 +20,7 @@ export default function chatsReducer(state = {current: {}, matches: []}, action)
         ...state,
         current: action.current};
     case "ADD_MATCH":
+      console.log(action);
       return action.match.data.attributes.accepted === false 
       ? state 
       : {...state, matches: [...state.matches, action.match.data.attributes]};

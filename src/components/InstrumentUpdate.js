@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function InstrumentUpdate() {
   return (
-    <div>
+    <span>
       FARTS
-    </div>
+    </span>
   )
 }
