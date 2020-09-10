@@ -11,7 +11,7 @@ function ChatDisplay(props) {
     <div id='chat-display' className="chat-display">
       {thisChat.map(message => <ChatBubble key={message.id} message={message} />)}
     </div>
-    : <div id='chat-display' className="chat-display"> <h1>NOTHING HERE YET!!</h1></div>
+    : <div id='chat-display-placeholder' className="chat-display-placeholder"> <h1>BANDTER</h1> </div>
   )
 }
 

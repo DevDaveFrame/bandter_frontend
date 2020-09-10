@@ -54,7 +54,7 @@ body {
 .match-container {
   padding: 0;
   margin: 0;
-  background: rgba(255, 255, 255, 0.228);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(37,37,37,1) 50%, rgba(0,0,0,1) 100%);
   height: 100%;
   width: 33%;
   display: flex;
@@ -76,11 +76,25 @@ body {
   padding: 1.5rem;
   height: 90%;
   width: 100%;
-  background-color: #ccdeff22;
+  background-color: #48484822;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
   scroll-snap-type: y proximity;
   bottom: 0px;
+}
+
+.chat-display-placeholder {
+  text-align: center;
+  padding: 15rem;
+  height: 90%;
+  width: 100%;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+}
+
+.chat-display-placeholder h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
 }
 
 .chat-bar {
@@ -102,10 +116,11 @@ body {
   margin: 0;
   width: 20%;
   border: 0;
-  background: rgba(103, 157, 238, 0.461);
+  background: rgba(255, 59, 59, 0.461);
   color: #dc3f4f;
   font-weight: 700;
   outline: none;
+  border-bottom-right-radius: 10px;
 }
 
 .send:hover {
@@ -113,7 +128,6 @@ body {
   margin: 0;
   width: 20%;
   border-bottom-right-radius: 10px;
-  border: 2px solid #DB2829;
   background: #112578cb;
   color: #DB2829;
   font-weight: 700;
@@ -145,11 +159,12 @@ body {
 }
 
 .match-box {
+  color: white;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   height: 4rem;
-  background-color: #ff515143;
+  background-color: #00000043;
   margin: 1px;
 }
 
@@ -214,7 +229,7 @@ box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
   background: #000;
   position: relative;
   top: 11vh;
-  left: 20%;
+  left: 23%;
   max-width: 150px;
   box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
   -webkit-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
