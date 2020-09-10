@@ -120,7 +120,7 @@ body {
   color: #dc3f4f;
   font-weight: 700;
   outline: none;
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 20px;
 }
 
 .send:hover {
@@ -134,14 +134,16 @@ body {
 }
 
 .chat-bubble {
+  font-weight: 550;
+  font-size: 1.1rem;
   min-height: 1.5rem;
   margin-bottom: 2px;
   margin-left: 20px;
   padding: 5px;
   border-radius: 10px;
   background: #c94b4b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #31bff285, #4bc1c979);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #31bff285, #4bc1c979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #73daff, #6ff4fe);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #73daff, #6ff4fe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -151,8 +153,8 @@ body {
   padding: 5px;
   border-radius: 5px;
   background: #c94b4b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #31bff285, #4bc1c979);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #31bff285, #4bc1c979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to left, #73daff, #6ff4fe);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #73daff, #6ff4fe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   scroll-snap-align: end;
   scroll-margin-block-end: 3rem;
   overflow-anchor: auto;
@@ -316,7 +318,7 @@ div.ui.profile-menu.menu {
   padding: 1rem;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: azure;
   min-height: 30px;
@@ -326,13 +328,21 @@ div.ui.profile-menu.menu {
   padding: 1rem;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #3f3f3f82
 }
 
-.track-info {
+.track-info-title {
+  justify-self: flex-start;
+}
 
+.track-info-album {
+  justify-self: flex-end;
+}
+
+.track-info-duration {
+  justify-self: flex-end;
 }
 
 .discovery-container {

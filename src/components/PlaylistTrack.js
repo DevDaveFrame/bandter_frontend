@@ -15,9 +15,9 @@ export default function PlaylistTrack({ track, selectedTrack, setSelectedTrack }
           }
           onClick={() => setSelectedTrack(track)}
         >
-          <span className="track-info"><b>Title: {thisTrack.title}</b></span> 
-          <span className="track-info"><b>Album: {thisTrack.album || "N/A"}</b></span> 
-          <span className="track-info"><b>Duration: {duration}</b></span> 
+          <span className="track-info-title"><b>Title: {thisTrack.title}</b></span> 
+          <span className="track-info-album"><b>Album: {thisTrack.album || "N/A"}</b></span> 
+          <span className="track-info-duration"><b>Duration: {duration}</b></span> 
 
 
         </div>
