@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { updateUser } from "../actions/userActions"
-import {Modal, Form, Button, Icon, Image} from "semantic-ui-react"
+import {Modal, Form, Button} from "semantic-ui-react"
 
 
 function ProfilePicUpdate (props) {

@@ -6,7 +6,6 @@ import {Modal, Form, Button} from "semantic-ui-react"
 
 function AddPhoto (props) {
   const [open, setOpen] = useState(false)
-  const [title, setTitle] = useState("");
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {

@@ -7,6 +7,7 @@ import {Modal, Form, Button} from "semantic-ui-react"
 function AddMusic (props) {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState("");
+  const [album, setAlbum] = useState("");
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {
@@ -18,6 +19,8 @@ function AddMusic (props) {
       uploadable.name
     )
     formData.append('user_id', props.user.id)
+    formData.append('title', title)
+    formData.append('album', album)
     let request = {
       method: "POST",
       // headers: {
@@ -47,12 +50,15 @@ function AddMusic (props) {
     >
         <Modal.Content>
           <Form onSubmit={(e) => handleSubmit(e)}>
-          <Form.Input onChange={(e) => setTitle(e.target.value)} 
-            name="title" required={true} label="Title" 
-            type="text" />
             <Form.Input onChange={(e) => setUploadable(e.target.files[0])} 
             name="content" required={true} label="Upload File" 
             type="file" />
+            <Form.Input onChange={(e) => setTitle(e.target.value)} 
+            name="title" required={true} value={title} label="Title" 
+            type="text" />
+            <Form.Input onChange={(e) => setAlbum(e.target.value)} 
+            name="title" required={true} value={album} label="Album" 
+            type="text" />
             <Button type='submit'>Submit</Button>
           </Form>
         </Modal.Content>

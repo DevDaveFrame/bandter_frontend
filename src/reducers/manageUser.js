@@ -47,13 +47,11 @@ export default function userReducer(state = {}, action) {
         songs: [...state.songs, action.song]
       };
     case "ADD_PHOTO":
-      console.log(action);
     return {
       ...state,
       photos: [...state.photos, action.photo]
     };
     case "ADD_MATCH":
-      console.log(action);
       return action.match.data.attributes.accepted === false 
       ? state 
       : {...state, 
