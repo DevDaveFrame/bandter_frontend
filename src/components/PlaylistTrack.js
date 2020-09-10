@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table } from "semantic-ui-react";
 
 export default function PlaylistTrack({ track, selectedTrack, setSelectedTrack }) {
   const thisTrack = track.attributes ? track.attributes : track
@@ -6,21 +7,26 @@ export default function PlaylistTrack({ track, selectedTrack, setSelectedTrack }
   ? `${Math.floor(thisTrack.duration / 60)}:${Math.floor(thisTrack.duration % 60)}`
   : "unavailable"
   return (
-    <div
-          key={track.id}
-          className={
-            track.id === selectedTrack.id
-              ? "playlist-item selected"
-              : "playlist-item"
-          }
-          onClick={() => setSelectedTrack(track)}
-        >
-          <span className="track-info-title"><b>Title: {thisTrack.title}</b></span> 
-          <span className="track-info-album"><b>Album: {thisTrack.album || "N/A"}</b></span> 
-          <span className="track-info-duration"><b>Duration: {duration}</b></span> 
-
-
-        </div>
-      
+    <Table.Row
+    key={track.id}
+    active={
+      track.id === selectedTrack.id
+        ? true
+        : false
+    }
+    onClick={() => setSelectedTrack(track)}
+    color='black' 
+    textAlign='center'
+    >
+      <Table.Cell>
+      {thisTrack.title}
+      </Table.Cell>
+      <Table.Cell>
+      {thisTrack.album || "N/A"}
+      </Table.Cell>
+      <Table.Cell>
+      {duration}
+      </Table.Cell>
+  </Table.Row>
   )
 }

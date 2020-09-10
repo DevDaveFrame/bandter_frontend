@@ -289,7 +289,11 @@ div.ui.profile-menu.menu {
 
 .profile-music-container {
   padding: 3rem;
+  padding-top: 0;
   text-align: center;
+}
+.profile-music-container button{
+  margin-bottom: 1rem;
 }
 .controls {
   display: flex;
@@ -314,7 +318,12 @@ div.ui.profile-menu.menu {
   background: #93291F;
 }
 
-.playlist-item {
+.header-row {
+  text-align: center;
+  align-content: center;
+}
+
+/* .playlist-item {
   padding: 1rem;
   display: flex;
   flex-flow: row nowrap;
@@ -343,7 +352,7 @@ div.ui.profile-menu.menu {
 
 .track-info-duration {
   justify-self: flex-end;
-}
+} */
 
 .discovery-container {
   color: white;
