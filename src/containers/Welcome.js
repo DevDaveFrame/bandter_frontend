@@ -1,13 +1,16 @@
-import React from 'react'
-import { Header, Container } from 'semantic-ui-react'
+import React from "react";
 
 function Welcome() {
   return (
-    <Container>
-    <Header as='h1'>Welcome to the App!</Header>
-    <Header as='h2'>This Will Presumably Have More Eventually!</Header>
-    </Container>
-  )
+    <div className="welcome">
+      <div class="bg-image"></div>
+
+      <div class="bg-text">
+        <h1>Bandter</h1>
+        <p>Local Music Anywhere</p>
+      </div>
+    </div>
+  );
 }
 
 export default Welcome;

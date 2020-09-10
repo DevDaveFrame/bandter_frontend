@@ -9,6 +9,7 @@ function AuthModal(props) {
 
   return (
     <Modal
+      className="auth-modal"
       size="tiny"
       centered={true}
       onClose={() => setOpen(false)}

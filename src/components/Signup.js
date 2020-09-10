@@ -9,7 +9,7 @@ class Signup extends React.Component {
     return (
       <>
         <Header centered as='h2'>Sign Up</Header>
-        <Form centered onSubmit={(e) => this.handleSubmit(e)}>
+        <Form className="auth-form" centered onSubmit={(e) => this.handleSubmit(e)}>
           <Form.Group centered>
             <Form.Input onChange={(e) => this.handleChange(e)} name="first_name" required={true} label="First Name" type="text" />
             <Form.Input onChange={(e) => this.handleChange(e)} name="last_name" required={true} label="Last Name" type="text" />

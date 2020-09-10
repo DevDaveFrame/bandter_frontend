@@ -6,9 +6,9 @@ import { Button, Form, Container, Header } from "semantic-ui-react";
 class Signup extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className="auth-container">
         <Header as="h2">Log In</Header>
-        <Form onSubmit={(e) => this.handleSubmit(e)}>
+        <Form className="auth-form" onSubmit={(e) => this.handleSubmit(e)}>
           <Form.Input
             onChange={(e) => this.handleChange(e)}
             name="email"

@@ -49,6 +49,15 @@ export function addSong (song) {
   }
 }
 
+export function addPhoto (photo) {
+  console.log('photo: ', photo);
+
+  return {
+    type: "ADD_PHOTO",
+    photo: photo.data
+  }
+}
+
 export function updateInstrument(user, instruments) {
   return (dispatch) => {
     let request = {
