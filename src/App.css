@@ -671,10 +671,20 @@ h2.ui.header {
 
 .profile-photo-container {
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.profile-photo-gallery {
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 3rem;
+  
 }
 
 .photo-thumb {
