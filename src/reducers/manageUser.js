@@ -3,6 +3,7 @@ export default function userReducer(state = {}, action) {
   let user;
   let songs;
   let photos;
+  let photo_idx;
   let friendRequests;
   switch (action.type) {
     case 'START_LOGGING_IN':
@@ -50,6 +51,14 @@ export default function userReducer(state = {}, action) {
     return {
       ...state,
       photos: [...state.photos, action.photo]
+    };
+    case "REMOVE_PHOTO":
+      photo_idx = state.photos.findIndex(photo => photo.id === action.photo.id)
+      console.log('photo_idx: ', photo_idx);
+      console.log([...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]);
+    return {
+      ...state,
+      photos: [...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]
     };
     case "UPDATE_USER_INSTRUMENTS":
       return {

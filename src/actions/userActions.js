@@ -94,6 +94,14 @@ export function updateGenre(user, genres) {
   }
 }
 
+export function deletePhoto(photo) {
+  console.log(photo)
+  return {
+    type: 'REMOVE_PHOTO',
+    photo: photo
+  }
+};
+
 export function logoutUser() {
   return {
     type: 'LOGOUT_USER',

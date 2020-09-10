@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 export const FriendsContainer = (props) => {
   useEffect(() => {
     props.getProfile(props.match.params.id)
-  }, [props, props.match.params.id])
+  }, [props.match.params.id])
   return (
     <div className="profile-container">
       <ProfileBanner user={props.friends.current} />
