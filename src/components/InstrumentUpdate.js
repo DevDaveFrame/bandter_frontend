@@ -7,6 +7,13 @@ function InstrumentUpdate(props) {
   const [open, setOpen] = useState(false)
   const [instrumentFilters, setInstrumentFilters] = useState([])
   let instrumentOptions = props.instruments.map(instrument => ({key: instrument.id, text: instrument.name, value: instrument.id }))
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.updateInstrument(props.user, instrumentFilters);
+    setOpen(false);
+  }
+  
   return (
     <Modal
     size="tiny"
@@ -16,7 +23,7 @@ function InstrumentUpdate(props) {
       open={open}
       trigger={<span className="tags">+ Add Instrument</span>}>
       <Modal.Content>
-        <Form onSubmit={() => props.updateInstrument(props.user, instrumentFilters)}>
+        <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Dropdown 
               placeholder='Instruments'
               fluid

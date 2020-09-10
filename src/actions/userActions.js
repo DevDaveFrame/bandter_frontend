@@ -61,7 +61,7 @@ export function addPhoto (photo) {
 export function updateInstrument(user, instruments) {
   return (dispatch) => {
     let request = {
-      method: "PATCH",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -69,9 +69,9 @@ export function updateInstrument(user, instruments) {
       },
       body: JSON.stringify({user_instrument: {user_id: user.id, instruments:[...instruments]}})
     }
-    fetch(`http://localhost:3000/api/v1/users/${user.id}`, request)
+    fetch(`http://localhost:3000/api/v1/user_instruments/`, request)
     .then(r => r.json())
-    .then(user => dispatch({type: "UPDATE_USER", user}))
+    .then(instruments => dispatch({type: "UPDATE_USER_INSTRUMENTS", instruments}))
     .catch(console.log)
   }
 }
@@ -79,7 +79,7 @@ export function updateInstrument(user, instruments) {
 export function updateGenre(user, genres) {
   return (dispatch) => {
     let request = {
-      method: "PATCH",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -87,9 +87,9 @@ export function updateGenre(user, genres) {
       },
       body: JSON.stringify({user_genre: {user_id: user.id, genres: [...genres]}})
     }
-    fetch(`http://localhost:3000/api/v1/users/${user.id}`, request)
+    fetch(`http://localhost:3000/api/v1/user_genres/`, request)
     .then(r => r.json())
-    .then(user => dispatch({type: "UPDATE_USER", user}))
+    .then(genres => dispatch({type: "UPDATE_USER_GENRES", genres}))
     .catch(console.log)
   }
 }

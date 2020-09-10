@@ -51,6 +51,16 @@ export default function userReducer(state = {}, action) {
       ...state,
       photos: [...state.photos, action.photo]
     };
+    case "UPDATE_USER_INSTRUMENTS":
+      return {
+        ...state,
+        instruments: [...state.instruments, ...action.instruments]
+      };
+    case "UPDATE_USER_GENRES":
+      return {
+        ...state,
+        genres: [...state.genres, ...action.genres]
+      };
     case "ADD_MATCH":
       return action.match.data.attributes.accepted === false 
       ? state 

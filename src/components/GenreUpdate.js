@@ -7,6 +7,11 @@ function GenreUpdate(props) {
   const [open, setOpen] = useState(false)
   const [genreFilters, setGenreFilters] = useState([])
   let genreOptions = props.genres.map(genre => ({key: genre.id, text: genre.name, value: genre.id }))
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.updateGenre(props.user, genreFilters)
+    setOpen(false);
+  }
   return (
       <Modal
       size="tiny"
@@ -16,7 +21,7 @@ function GenreUpdate(props) {
       open={open}
       trigger={<span className="tags">+ Add Genre</span>}>
         <Modal.Content>
-          <Form onSubmit={() => props.updateGenre(props.user, genreFilters)}>
+          <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Dropdown 
               placeholder='Genres'
               fluid
