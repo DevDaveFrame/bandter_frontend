@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Progress, Icon} from 'semantic-ui-react';
+import {Icon} from 'semantic-ui-react';
 import WaveSurfer from "wavesurfer.js";
 
 const formWaveSurferOptions = ref => ({
@@ -17,11 +17,10 @@ const formWaveSurferOptions = ref => ({
   partialRender: true
 });
 
-export default function Waveform({ audio }) {
+export default function Waveform(props) {
+  const { audio } = props
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [percent, setPercent] = useState(0);
   const [playing, setPlay] = useState(false);
   const [volume, setVolume] = useState(0.5);
 
@@ -36,15 +35,15 @@ export default function Waveform({ audio }) {
     wavesurfer.current.load(audio);
 
     wavesurfer.current.on("loading", function(progress) {
-      setLoading(true);
-      setPercent(progress);
+      props.setLoading(true);
+      props.setPercent(progress);
     });
 
     wavesurfer.current.on("ready", function() {
       // https://wavesurfer-js.org/docs/methods.html
       // wavesurfer.current.play();
       // setPlay(true);
-      setLoading(false);
+      props.setLoading(false);
 
       // make sure object stillavailable when file loaded
       if (wavesurfer.current) {
@@ -76,7 +75,6 @@ export default function Waveform({ audio }) {
   return (
     <div>
       <div id="waveform" ref={waveformRef} />
-      {loading === true ? <Progress percent={percent} color='red' /> : null} 
       <div className="controls">
         <button onClick={handlePlayPause}>{!playing ?<Icon size="large" fitted name='play'/>:<Icon size="large" fitted name='pause'/>}</button>
         <div className="volume-controls">

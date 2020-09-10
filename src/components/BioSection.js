@@ -23,6 +23,7 @@ function BioSection(props) {
                 </span>
               ))
             : "N/A"}
+            <br/>
             {props.user.id == localStorage.current 
       ? <InstrumentUpdate />
       : null}
@@ -38,6 +39,7 @@ function BioSection(props) {
                 </span>
               ))
             : "N/A"}
+            <br/>
             {props.user.id == localStorage.current 
       ? <GenreUpdate />
       : null}
