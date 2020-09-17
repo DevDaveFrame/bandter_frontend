@@ -382,38 +382,20 @@ div.ui.profile-menu.menu {
   margin: 1rem 0;
 }
 
-.discover-card {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 100%;
-  align-items: stretch;
-  justify-content: center;
+.ui.items.discover-display {
+  overflow-y: scroll;
+  height: 95vh;
+  width: 70%;
+  background: #bdc3c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #8aa0b6, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #89a0b6, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  padding: 1rem;
+  margin-top: 0;
 }
-.discover-bio {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-}
-
-.discover-user {
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
-}
-.discover-user {
-  width: 150px;
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
-}
-
-.discover-user img {
-  max-width: 150px;
-}
-
-.discover-user h4 {
-  margin: 2px;
+div.item.discover-user {
+  background-color: gray;
+  color: white;
 }
 
 .discover-info {
@@ -724,4 +706,8 @@ h2.ui.header {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+#waveform {
+  margin-top: .5rem;
 }

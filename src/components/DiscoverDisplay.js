@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Container } from 'semantic-ui-react';
+import {Item } from 'semantic-ui-react';
 import {beginSearch} from '../actions/discoverActions';
 import DiscoverUser from './DiscoverUser';
 
 function DiscoverDisplay (props) {
   
   return (
-    <Container >
+    <Item.Group className="discover-display">
       {props.discovery.map(user => <DiscoverUser key={user.id} discovered_user={user} />)}
-    </Container>
+    </Item.Group>
   )
 }
 

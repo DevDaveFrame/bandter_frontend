@@ -33,7 +33,7 @@ function DiscoverFilters (props) {
           value={instrumentFilters}
           options={instrumentOptions}
         />
-        <Button type='submit'>TEST</Button>
+        <Button type='submit'>SEARCH</Button>
       </Form>
     </div>
   )
