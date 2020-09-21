@@ -4,9 +4,10 @@ import {setAsCurrentChat} from '../actions/chatActions'
 import MatchBox from '../components/MatchBox'
 
 function MatchContainer (props) {
+  const matches = props.chats.matches
   return (
     <div className='match-container'>
-      {props.chats.matches.map( chat => <MatchBox key={chat.id} chat={chat} setAsCurrentChat={props.setAsCurrentChat}/> )}
+      {matches.map( chat => <MatchBox key={chat.id} chat={chat} setAsCurrentChat={props.setAsCurrentChat}/> )}
     </div>
   )
 }

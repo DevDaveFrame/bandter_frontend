@@ -20,10 +20,9 @@ export default function chatsReducer(state = {current: {}, matches: []}, action)
         ...state,
         current: action.current};
     case "ADD_MATCH":
-      console.log(action);
-      return action.match.data.attributes.accepted === false 
-      ? state 
-      : {...state, matches: [...state.matches, action.match.data]};
+      return action.match.data.attributes.accepted === true && !state.matches.includes(action.match.data)
+      ? {...state, matches: [...state.matches, action.match.data]} 
+      : state;
     case "LOGOUT_USER":
     return {current: {}, matches: []};
     default:
