@@ -4,9 +4,7 @@ import {connect} from 'react-redux'
 import {deletePhoto} from '../actions/userActions'
 
 function PhotoDisplay(props) {
-  console.log('props: ', props);
   const {photo} = props
-  console.log('photo: ', photo);
   const [open, setOpen] = useState(false)
   const deletePhoto = () => {
     let request = {

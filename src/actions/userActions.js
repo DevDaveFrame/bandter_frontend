@@ -1,4 +1,7 @@
+import {fetchGenres} from './genreActions'
+
 export function setUser () {
+  fetchGenres() 
   return (dispatch) => {
     dispatch({type: 'START_LOGGING_IN'});
     let request = {
@@ -12,10 +15,11 @@ export function setUser () {
     .then(r => r.json())
     .then(data => dispatch({type: 'SET_USER', data}))
     .catch(() => dispatch({type: 'LOGOUT_USER'}))
-  } 
+  }
 };
 
 export function loginUser(login){
+  fetchGenres() 
   return (dispatch) => {
     dispatch({type: 'START_LOGGING_IN'});
     let request = {
@@ -33,7 +37,7 @@ export function loginUser(login){
       )
     )
   }
-}
+};
 
 export function updateUser(data) {
   return {

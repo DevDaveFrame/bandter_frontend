@@ -3,6 +3,7 @@ export default function userReducer(state = {}, action) {
   let user;
   let songs;
   let photos;
+  let photo_to_delete;
   let photo_idx;
   let friendRequests;
   switch (action.type) {
@@ -53,12 +54,14 @@ export default function userReducer(state = {}, action) {
       photos: [...state.photos, action.photo]
     };
     case "REMOVE_PHOTO":
-      photo_idx = state.photos.findIndex(photo => photo.id === action.photo.id)
-      console.log('photo_idx: ', photo_idx);
+      photo_to_delete = state.photos.filter(photo => photo.id == action.photo.id)
+      photo_idx = state.photos.indexOf(photo_to_delete)
       console.log([...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]);
     return {
       ...state,
-      photos: [...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]
+      photos: state.photos.length > 1 
+      ? [...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]
+      : []
     };
     case "UPDATE_USER_INSTRUMENTS":
       return {

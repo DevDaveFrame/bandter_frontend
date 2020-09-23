@@ -32,7 +32,7 @@ function GenreUpdate(props) {
               value={genreFilters}
               options={genreOptions}
             />
-            <Button type='submit'>TEST</Button>
+            <Button type='submit'>ADD</Button>
           </Form>
         </Modal.Content>
       </Modal>

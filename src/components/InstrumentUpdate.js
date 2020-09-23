@@ -34,7 +34,7 @@ function InstrumentUpdate(props) {
               value={instrumentFilters}
               options={instrumentOptions}
             />
-            <Button type='submit'>TEST</Button>
+            <Button type='submit'>ADD</Button>
           </Form>
       </Modal.Content>
     </Modal>
