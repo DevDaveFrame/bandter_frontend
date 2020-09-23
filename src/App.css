@@ -233,9 +233,9 @@ box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
   top: 8vh;
   left: 23%;
   max-width: 150px;
-  box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
+  /* box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
   -webkit-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75); */
   border: 1px solid rgb(198, 198, 198);
   border-radius: 5px;
 }
@@ -316,14 +316,38 @@ div.ui.profile-menu.menu {
   border-radius: 35px;
   border: 0;
   background: #93291F;
+  -webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
+     -moz-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
+          box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
+}
+
+.controls button:active {
+  margin-right: 30px;
+  margin: 1rem;
+  padding: 10px;
+  padding-left: 12px;
+  border-radius: 35px;
+  border: 0;
+  background: #93291F;
+  -webkit-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
+     -moz-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
+          box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
+}
+
+.controls button:focus {
+  outline: none;
 }
 
 .header-row {
   text-align: center;
   align-content: center;
 }
-
-.hidden {
+div.ui.red.progress.progress{
+  display: flex;
+  flex-flow: column no wrap;
+  padding-bottom: -2rem;
+}
+div.ui.red.progress.hidden {
   display: none;
 }
 
@@ -456,14 +480,20 @@ div.item.discover-user {
 .friend-card {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   height: 3rem;
   margin-bottom: 1rem;
+}
+
+.friend-card h5 {
+  margin: 0;
 }
 
 .friend-card-thumb {
   height: 100%;
   width: auto;
-  margin-right: 1rem;
+  margin-right: .5rem;
 }
 
 .friend-request {
@@ -536,7 +566,7 @@ input[type=range]:focus {
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 70%;
-  height: .5rem;
+  height: .65rem;
   cursor: pointer;
   box-shadow: inset 0px 2px 0px #000000, 0px 2px 0px #0d0d0d;
   background: #ED344B;
@@ -558,7 +588,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 input[type=range]::-moz-range-track {
   width: 70%;
-  height: .5rem;
+  height: .65rem;
   cursor: pointer;
   animate: 0.2s;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
@@ -577,7 +607,7 @@ input[type=range]::-moz-range-thumb {
 }
 input[type=range]::-ms-track {
   width: 70%;
-  height: .5rem;
+  height: .65rem;
   cursor: pointer;
   animate: 0.2s;
   background: transparent;
@@ -613,6 +643,7 @@ input[type=range]:focus::-ms-fill-upper {
   background: #ED344B;
 }
 
+/*///////////////////*/
 .welcome .bg-image{
   box-sizing: border-box;
   background-image: url(./background.jpg);
