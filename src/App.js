@@ -16,11 +16,11 @@ import ChatContainer from './containers/ChatContainer';
 class App extends React.Component {
 
   componentDidMount(){
+    this.props.fetchGenres()
+    this.props.fetchInstruments()
     if (localStorage.token) {
       this.props.setUser()
     }
-    this.props.fetchGenres()
-    this.props.fetchInstruments()
   }
 
   render() {

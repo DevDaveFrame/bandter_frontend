@@ -4,6 +4,7 @@ import FriendRequest from '../components/FriendRequest'
 
 export const ProfileFriendContainer = (props) => {
   console.log('FRENDS: ', props);
+  const requests = props.user.friend_requests
 
   return (
     <div className="profile-friend-container">
@@ -15,7 +16,7 @@ export const ProfileFriendContainer = (props) => {
       {props.user.id == localStorage.current 
       ? <div className="friend-requests">
         <h2>Friend Requests</h2>
-        {props.user.friend_requests.map(request => <FriendRequest request={request} />)}
+        {requests.map(request => <FriendRequest request={request} />)}
       </div>
       : null}
     </div>
