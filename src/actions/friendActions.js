@@ -1,5 +1,5 @@
 export const getProfile = (id) => {
-  console.log("HITTING IT")
+  "HITTING IT")
   return (dispatch) => {
     let request = {
       method: "GET",

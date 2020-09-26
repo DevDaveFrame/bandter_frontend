@@ -6,7 +6,6 @@ import { Item, Button } from 'semantic-ui-react';
 
 
 function DiscoverUser (props) {
-  console.log('props: ', props);
   const user = props.discovered_user;
   const songs = props.discovered_user.songs;
   return(

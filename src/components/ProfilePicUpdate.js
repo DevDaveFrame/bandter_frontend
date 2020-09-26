@@ -21,7 +21,6 @@ function ProfilePicUpdate (props) {
       uploadable,
       uploadable.name
     )
-    console.log(uploadable);
     let request = {
       method: "PATCH",
       body: formData

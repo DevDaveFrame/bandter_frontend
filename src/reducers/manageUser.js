@@ -25,7 +25,6 @@ export default function userReducer(state = {}, action) {
         loggedIn: true
       };
     case "SET_USER":
-      console.log("user stuff: ", action);
       user = action.data.user.data.attributes
       friendRequests = user.friend_requests.data
       songs = action.data.user.included.filter(included => included.type === "song");
@@ -56,7 +55,6 @@ export default function userReducer(state = {}, action) {
     case "REMOVE_PHOTO":
       photo_to_delete = state.photos.filter(photo => photo.id == action.photo.id)
       photo_idx = state.photos.indexOf(photo_to_delete)
-      console.log([...state.photos.slice(0, photo_idx), ...state.photos.slice(photo_idx + 1)]);
     return {
       ...state,
       photos: state.photos.length > 1 

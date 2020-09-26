@@ -31,7 +31,6 @@ function AddPhoto (props) {
   }
 
   const handleResponse = (photo) => {
-    console.log('photo: ', photo);
     props.addPhoto(photo)
     setOpen(false)
   }

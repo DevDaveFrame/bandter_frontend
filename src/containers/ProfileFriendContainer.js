@@ -3,7 +3,6 @@ import FriendCard from '../components/FriendCard'
 import FriendRequest from '../components/FriendRequest'
 
 export const ProfileFriendContainer = (props) => {
-  console.log('FRENDS: ', props);
   const requests = props.user.friend_requests
 
   return (

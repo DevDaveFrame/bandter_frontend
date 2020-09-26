@@ -54,8 +54,6 @@ export function addSong (song) {
 }
 
 export function addPhoto (photo) {
-  console.log('photo: ', photo);
-
   return {
     type: "ADD_PHOTO",
     photo: photo.data
@@ -99,7 +97,6 @@ export function updateGenre(user, genres) {
 }
 
 export function deletePhoto(photo) {
-  console.log(photo)
   return {
     type: 'REMOVE_PHOTO',
     photo: photo
