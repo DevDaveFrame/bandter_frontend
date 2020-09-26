@@ -19,7 +19,6 @@ export function beginSearch (formObj) {
 export function handleMatch (friendObj) {
   return (dispatch) => {
     dispatch({type: "REMOVE_FRIENDEE", friendee_id: friendObj.friendee_id});
-    console.log("HIT");
     let request = {
       method: "POST",
       headers: {

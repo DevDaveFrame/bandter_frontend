@@ -78,7 +78,7 @@ export default function userReducer(state = {}, action) {
       ? state 
       : {...state, 
         friend_requests: state.friend_requests.filter(req => req.id !== action.match.data.id),
-        friends: [...state.friends, {id: action.match.data.frinder_id, name: action.match.data.frinder_name, img_url: action.match.data.frinder_img}]
+        friends: [...state.friends, {id: action.match.data.attributes.friender_id, name: action.match.data.attributes.friender_name, img_url: action.match.data.attributes.friender_img}]
       };
     case "LOGOUT_USER":
       localStorage.clear()
