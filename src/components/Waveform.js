@@ -18,7 +18,7 @@ const formWaveSurferOptions = ref => ({
 });
 
 export default function Waveform(props) {
-  const { audio } = props
+  const { audio, setLoading, setPercent } = props
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
   const [playing, setPlay] = useState(false);
@@ -35,27 +35,19 @@ export default function Waveform(props) {
     wavesurfer.current.load(audio);
 
     wavesurfer.current.on("loading", function(progress) {
-      props.setLoading(true);
-      props.setPercent(progress);
+      setLoading(true);
+      setPercent(progress);
     });
 
     wavesurfer.current.on("ready", function() {
-      // https://wavesurfer-js.org/docs/methods.html
-      // wavesurfer.current.play();
-      // setPlay(true);
-      props.setLoading(false);
-
-      // make sure object stillavailable when file loaded
-      if (wavesurfer.current) {
-        wavesurfer.current.setVolume(volume);
-        setVolume(volume);
-      }
+      wavesurfer.current.setVolume(0.5)
+      setLoading(false);
     });
 
     // Removes events, elements and disconnects Web Audio nodes.
     // when component unmount
     return () => wavesurfer.current.destroy();
-  }, [audio]);
+  }, [audio, setLoading, setPercent]);
 
   const handlePlayPause = () => {
     setPlay(!playing);

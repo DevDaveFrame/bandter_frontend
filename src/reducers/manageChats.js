@@ -8,7 +8,7 @@ export default function chatsReducer(state = {current: {}, matches: []}, action)
         current: {},
         matches: matches
       };
-      case "SET_USER":
+    case "SET_USER":
         matches = action.data.user.included.filter(included => included.type === "match_chat");
         return {
           ...state,
@@ -23,8 +23,15 @@ export default function chatsReducer(state = {current: {}, matches: []}, action)
       return action.match.data.attributes.accepted === true && !state.matches.includes(action.match.data)
       ? {...state, matches: [...state.matches, action.match.data]} 
       : state;
+//FIX
+    //   case "ADD_MESSAGE":
+    //   return [...state, action.message];
+    // case "SET_MESSAGES":
+    //   let messages = action.messages.included
+    //   return [...messages];
+//END FIX
     case "LOGOUT_USER":
-    return {current: {}, matches: []};
+      return {current: {}, matches: []};
     default:
       return state;
   }

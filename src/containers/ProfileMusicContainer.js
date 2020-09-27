@@ -5,7 +5,7 @@ import MusicPlayer from '../components/MusicPlayer'
 function ProfileMusicContainer(props) {
   return (
     <div className='profile-music-container'>
-      {props.user.id == localStorage.current 
+      {props.user.id === parseInt(localStorage.current, 10) 
       ? <AddMusic />
       : null}
       {props.user.songs && props.user.songs[0] ? <MusicPlayer songs={props.user.songs}/> : null}

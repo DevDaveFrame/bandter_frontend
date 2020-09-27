@@ -7,7 +7,7 @@ function ProfileBanner(props) {
   const user = props.user;
   return (
     <div className="profile-banner">
-      {user.id == localStorage.current 
+      {user.id === parseInt(localStorage.current, 10)
       ? <ProfilePicUpdate />
       : null}
       <img className="profile-pic" src={ user.img_url || logo } alt={user.name} />

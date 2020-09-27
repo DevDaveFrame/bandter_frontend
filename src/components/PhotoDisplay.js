@@ -32,7 +32,7 @@ function PhotoDisplay(props) {
     trigger={<img className='photo-thumb' src={photo.attributes.img_url} alt='fix this'/>}
     >
       <img className='photo-display' src={photo.attributes.img_url} alt='fix this'/>
-      {props.user.id == photo.attributes.user_id ? <a href="#" onClick={()=>deletePhoto()}>DELETE</a> : null }
+      {props.user.id === parseInt(photo.attributes.user_id, 10) ? <button onClick={()=>deletePhoto()}>DELETE</button> : null }
     </Modal>
   )
 }

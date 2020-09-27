@@ -12,7 +12,7 @@ export const ProfileFriendContainer = (props) => {
         {props.user.friends.map(friend => <FriendCard key={friend.id} friend={friend} />)}
       </div>
 
-      {props.user.id == localStorage.current 
+      {props.user.id === parseInt(localStorage.current)
       ? <div className="friend-requests">
         <h2>Friend Requests</h2>
         {requests.map(request => <FriendRequest request={request} />)}

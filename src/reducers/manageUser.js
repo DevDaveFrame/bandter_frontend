@@ -53,7 +53,7 @@ export default function userReducer(state = {}, action) {
       photos: [...state.photos, action.photo]
     };
     case "REMOVE_PHOTO":
-      photo_to_delete = state.photos.filter(photo => photo.id == action.photo.id)
+      photo_to_delete = state.photos.filter(photo => photo.id === parseInt(action.photo.id, 10))
       photo_idx = state.photos.indexOf(photo_to_delete)
     return {
       ...state,

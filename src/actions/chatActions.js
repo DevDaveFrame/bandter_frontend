@@ -1,18 +1,3 @@
-export function pushToCurrentChat (message) {
-    return {
-      type: "ADD_MESSAGE",
-      message: message.data
-    }
-}
-
-export function addSub (chat, connection) {
-  return {
-    type: "CREATE_SUBSCRIPTION",
-    chat: chat,
-    connection: connection
-  }
-}
-
 export function setAsCurrentChat (chat) {
   return (dispatch) => {
     dispatch({ type: "SET_CURRENT_CHAT", current: chat });
@@ -27,4 +12,11 @@ export function setAsCurrentChat (chat) {
     .then(r => r.json())
     .then(data => dispatch({type: 'SET_MESSAGES', messages: data}))
   } 
+}
+
+export function pushToCurrentChat (message) {
+  return {
+    type: "ADD_MESSAGE",
+    message: message
+  }
 }

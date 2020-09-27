@@ -1,5 +1,4 @@
 export const getProfile = (id) => {
-  "HITTING IT")
   return (dispatch) => {
     let request = {
       method: "GET",

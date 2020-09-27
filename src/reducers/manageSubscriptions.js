@@ -1,5 +1,4 @@
 export default function subscriptionsReducer(state = {}, action) {
-  // let idx;
   switch (action.type) {
     case "SUBSCRIBE":
       return {

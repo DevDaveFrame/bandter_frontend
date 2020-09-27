@@ -19,7 +19,7 @@ const Playlist = ({ tracks, selectedTrack, setSelectedTrack }) => {
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-        <Table.Body>{tracks.map(track => (<PlaylistTrack track={track} selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack}/>))}</Table.Body>
+        <Table.Body>{tracks.map(track => (<PlaylistTrack key={track.id} track={track} selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack}/>))}</Table.Body>
       </Table>
     </div>
   );

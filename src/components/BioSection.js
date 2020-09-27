@@ -24,7 +24,7 @@ function BioSection(props) {
               ))
             : "N/A"}
             <br/>
-            {props.user.id == localStorage.current 
+            {props.user.id === parseInt(localStorage.current, 10) 
       ? <InstrumentUpdate />
       : null}
         </p>
@@ -40,12 +40,12 @@ function BioSection(props) {
               ))
             : "N/A"}
             <br/>
-            {props.user.id == localStorage.current 
+            {props.user.id === parseInt(localStorage.current, 10) 
       ? <GenreUpdate />
       : null}
         </p>
       </div>
-      {props.user.id == localStorage.current 
+      {props.user.id === parseInt(localStorage.current, 10) 
       ? <UserUpdate />
       : null}
     </div>
