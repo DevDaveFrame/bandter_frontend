@@ -25,6 +25,7 @@ export default function userReducer(state = {}, action) {
         loggedIn: true
       };
     case "SET_USER":
+      console.log(action);
       user = action.data.user.data.attributes
       friendRequests = user.friend_requests.data
       songs = action.data.user.included.filter(included => included.type === "song");

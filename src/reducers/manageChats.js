@@ -26,9 +26,12 @@ export default function chatsReducer(state = {current: {}, matches: []}, action)
 //FIX
     //   case "ADD_MESSAGE":
     //   return [...state, action.message];
-    // case "SET_MESSAGES":
-    //   let messages = action.messages.included
-    //   return [...messages];
+    case "SET_MESSAGES":
+      let messages = action.messages.included
+      return {
+        ...state,
+        current: {...state.current, messages: messages}
+      };
 //END FIX
     case "LOGOUT_USER":
       return {current: {}, matches: []};

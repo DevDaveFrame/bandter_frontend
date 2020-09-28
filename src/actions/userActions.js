@@ -32,9 +32,7 @@ export function loginUser(login){
     }
     fetch(`http://localhost:3000/api/v1/login`, request)
     .then(r => r.json())
-    .then(data => dispatch(
-      {type: 'LOGIN_USER', data}
-      )
+    .then(data => dispatch({type: 'LOGIN_USER', data})
     )
   }
 };

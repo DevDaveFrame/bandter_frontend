@@ -6,7 +6,7 @@ function MatchBox (props) {
   const chat = props.chat.attributes
   return (
     <div className="match-box"
-      onClick={() => props.setAsCurrentChat(chat)}
+      onClick={() => props.setAsCurrentChat(props.chat)}
     >
       <img className="match-thumb" 
         src={chat.friender_id !== props.user.id ? chat.friender_img : chat.friendee_img} 
