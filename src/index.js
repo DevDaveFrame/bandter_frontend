@@ -16,7 +16,7 @@ import discoveryReducer from './reducers/manageDiscovery';
 import genreReducer from './reducers/manageGenres';
 import instrumentsReducer from './reducers/manageInstruments';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   user: userReducer,
   friends: friendsReducer,
   messages: messagesReducer,
@@ -26,6 +26,13 @@ const rootReducer = combineReducers({
   genres: genreReducer,
   instruments: instrumentsReducer
 })
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+  return appReducer(state, action)
+}
 
 const store = createStore(
   rootReducer, compose(
