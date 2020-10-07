@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Progress} from 'semantic-ui-react';
-import Waveform from "../components/Waveform";
-import Playlist from "../components/Playlist";
+import Waveform from ".Waveform";
+import Playlist from "./Playlist";
 
 function MusicPlayer(props) {
   const [loading, setLoading] = useState(false);

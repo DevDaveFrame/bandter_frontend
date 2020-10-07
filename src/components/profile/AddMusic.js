@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { addPhoto } from "../actions/userActions"
+import { addSong } from "../../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
 
-function AddPhoto (props) {
+function AddMusic (props) {
   const [open, setOpen] = useState(false)
+  const [title, setTitle] = useState("");
+  const [album, setAlbum] = useState("");
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     let formData = new FormData()
     formData.append(
-      "content",
+      "audio",
       uploadable,
       uploadable.name
     )
     formData.append('user_id', props.user.id)
+    formData.append('title', title)
+    formData.append('album', album)
     let request = {
       method: "POST",
       // headers: {
@@ -24,14 +28,14 @@ function AddPhoto (props) {
       //   },
       body: formData
     }
-    fetch(`http://localhost:3000/api/v1/photos/`, request)
+    fetch(`http://localhost:3000/api/v1/songs/`, request)
     .then(r => r.json())
-    .then(photo => handleResponse(photo))
+    .then(data => handleResponse(data))
     .catch(console.log)
   }
 
-  const handleResponse = (photo) => {
-    props.addPhoto(photo)
+  const handleResponse = (data) => {
+    props.addSong(data)
     setOpen(false)
   }
 
@@ -42,13 +46,19 @@ function AddPhoto (props) {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button>ADD A PHOTO</Button>}
+      trigger={<Button>ADD A SONG</Button>}
     >
         <Modal.Content>
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Input onChange={(e) => setUploadable(e.target.files[0])} 
             name="content" required={true} label="Upload File" 
             type="file" />
+            <Form.Input onChange={(e) => setTitle(e.target.value)} 
+            name="title" required={true} value={title} label="Title" 
+            type="text" />
+            <Form.Input onChange={(e) => setAlbum(e.target.value)} 
+            name="title" required={true} value={album} label="Album" 
+            type="text" />
             <Button type='submit'>Submit</Button>
           </Form>
         </Modal.Content>
@@ -60,4 +70,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, {addPhoto})(AddPhoto)
+export default connect(mapStateToProps, {addSong})(AddMusic)

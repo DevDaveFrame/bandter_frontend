@@ -1,7 +1,7 @@
 import React from "react";
-import UserUpdate from "./UserUpdate";
-import InstrumentUpdate from "./InstrumentUpdate";
-import GenreUpdate from "./GenreUpdate";
+import UserUpdate from "../UserUpdate";
+import InstrumentUpdate from "../InstrumentUpdate";
+import GenreUpdate from "../GenreUpdate";
 
 function BioSection(props) {
   const user = props.user;

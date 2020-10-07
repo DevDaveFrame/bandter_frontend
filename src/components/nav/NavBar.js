@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from 'react';
 import {connect} from "react-redux";
-import {loginUser, logoutUser} from "../actions/userActions"
+import {loginUser, logoutUser} from "../../actions/userActions"
 import {NavLink} from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import AuthModal from "./AuthModal";

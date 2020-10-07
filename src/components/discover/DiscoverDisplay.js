@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Item } from 'semantic-ui-react';
-import {beginSearch} from '../actions/discoverActions';
+import {beginSearch} from '../../actions/discoverActions';
 import DiscoverUser from './DiscoverUser';
 
 function DiscoverDisplay (props) {

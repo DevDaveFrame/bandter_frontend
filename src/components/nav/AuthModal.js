@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Menu, Segment, MenuItem } from 'semantic-ui-react'
-import Signup from './Signup'
-import Login from './Login'
+import Signup from '../Signup'
+import Login from '../Login'
 
 function AuthModal(props) {
   const [open, setOpen] = React.useState(false)
