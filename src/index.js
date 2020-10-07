@@ -34,6 +34,7 @@ const rootReducer = (state, action) => {
   return appReducer(state, action)
 }
 
+//REMOVE REDUX_DEVTOOLS for PRODUCTION RELEASE
 const store = createStore(
   rootReducer, compose(
     applyMiddleware(thunk),
