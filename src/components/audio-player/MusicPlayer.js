@@ -4,7 +4,7 @@ import Waveform from ".Waveform";
 import Playlist from "./Playlist";
 
 function MusicPlayer(props) {
-  //hooks to control progress bar
+  //hooks to control progress bar in Progress and Waveform
   const [loading, setLoading] = useState(false);
   const [percent, setPercent] = useState(0);
   //hook for current track
