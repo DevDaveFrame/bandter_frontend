@@ -4,8 +4,10 @@ import Waveform from ".Waveform";
 import Playlist from "./Playlist";
 
 function MusicPlayer(props) {
+  //hooks to control progress bar
   const [loading, setLoading] = useState(false);
   const [percent, setPercent] = useState(0);
+  //hook for current track
   const [selectedTrack, setSelectedTrack] = useState(props.songs[0] ? props.songs[0] : null);
   let track = null;
   if (selectedTrack !== null) {
@@ -13,9 +15,10 @@ function MusicPlayer(props) {
   }
 
   return (
-    track === null ?
-    <div>NO TRACKS HERE YET</div> :
-    <div className='music-player'>
+    //if there are no tracks, don't load music player
+    track === null 
+    ?<div>NO TRACKS HERE YET</div> 
+    :<div className='music-player'>
       <Progress className={loading ? "progress" : "hidden"} percent={percent} color='red' />
       <Waveform 
       className={!loading ? "waveform" : "hidden"}
