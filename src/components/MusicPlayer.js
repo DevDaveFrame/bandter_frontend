@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Progress} from 'semantic-ui-react';
-import Waveform from ".Waveform";
+import Waveform from "./Waveform";
 import Playlist from "./Playlist";
 
 function MusicPlayer(props) {

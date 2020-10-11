@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { addPhoto } from "../../actions/userActions"
+import { addPhoto } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
 

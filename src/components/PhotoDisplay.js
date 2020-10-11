@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Modal } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {deletePhoto} from '../../actions/userActions'
+import {deletePhoto} from '../actions/userActions'
 
 function PhotoDisplay(props) {
   const {photo} = props

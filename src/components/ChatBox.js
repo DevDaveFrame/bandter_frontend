@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Cable from "actioncable";
 import { connect } from "react-redux";
 import ChatBubble from "./ChatBubble";
-import { setSubscriptions } from "../../actions/subscriptionActions";
-import { pushToCurrentChat } from "../../actions/chatActions";
+import { setSubscriptions } from "../actions/subscriptionActions";
+import { pushToCurrentChat } from "../actions/chatActions";
 
 function ChatBox(props) {
   const cable = Cable.createConsumer("ws://localhost:3000/cable");
