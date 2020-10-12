@@ -40,8 +40,13 @@ export default function Waveform(props) {
     });
 
     wavesurfer.current.on("ready", function() {
-      wavesurfer.current.setVolume(0.5)
+      wavesurfer.current.setVolume(volume)
       setLoading(false);
+    });
+
+    wavesurfer.current.on("finish", function() {
+      wavesurfer.current.setVolume(volume)
+      setPlay(!playing);
     });
 
     // Removes events, elements and disconnects Web Audio nodes.
