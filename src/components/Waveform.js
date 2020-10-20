@@ -7,10 +7,10 @@ const formWaveSurferOptions = ref => ({
   waveColor: "#eee",
   progressColor: "#93291F",
   cursorColor: "OrangeRed",
-  barWidth: 5,
-  barRadius: 5,
+  barWidth: 2,
+  barRadius: 3,
   responsive: true,
-  height: 75,
+  height: 80,
   // If true, normalize by the maximum peak instead of 1.0.
   normalize: true,
   // Use the PeakCache to improve rendering speed of large waveforms.
