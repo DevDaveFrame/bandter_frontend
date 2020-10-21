@@ -6,24 +6,29 @@ import { setSubscriptions } from "../actions/subscriptionActions";
 import { pushToCurrentChat } from "../actions/chatActions";
 
 function ChatBox(props) {
-  //create a consumer using actioncable API
-  const cable = Cable.createConsumer("ws://localhost:3000/cable");
   //deconstruct state to access the currently selected chat
   let current = props.chats.current;
   const [currentMessage, setCurrentMessage] = useState("");
+
+  //create a consumer using actioncable API
+  const cable = Cable.createConsumer("ws://localhost:3000/cable");
+  
   const updateCurrentChatMessage = (event) => {
     setCurrentMessage(event.target.value);
   };
+
   const handleSendEvent = (event) => {
     event.preventDefault();
     postMessage(currentMessage);
     setCurrentMessage("");
   };
+
   const handleChatInputKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSendEvent(event);
     }
   };
+
   const postMessage = (message) => {
     props.subscriptions[current.id].create(message);
   };
@@ -52,6 +57,7 @@ function ChatBox(props) {
       )
     );
   }
+
   return (
     <div className="chat-box">
       {current.id ? (
@@ -68,12 +74,13 @@ function ChatBox(props) {
             />
           ))}
         </div>
-      ) : (
+        ) : (
         <div id="chat-display-placeholder" className="chat-display-placeholder">
-          {" "}
-          <h1>BANDTER</h1>{" "}
+          <h1>BANDTER</h1>
         </div>
-      )}
+        )
+      }
+      
       <div className="chat-bar">
         <input
           value={currentMessage}

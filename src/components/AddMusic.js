@@ -12,16 +12,14 @@ function AddMusic (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    let formData = new FormData()
-    formData.append(
-      "audio",
-      uploadable,
-      uploadable.name
-    )
+    
+    const formData = new FormData()
+    formData.append('audio', uploadable, uploadable.name)
     formData.append('user_id', props.user.id)
     formData.append('title', title)
     formData.append('album', album)
-    let request = {
+    
+    const request = {
       method: "POST",
       // headers: {
       //   'Content-Type': "multipart/form-data"
