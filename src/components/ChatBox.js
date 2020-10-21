@@ -6,9 +6,10 @@ import { setSubscriptions } from "../actions/subscriptionActions";
 import { pushToCurrentChat } from "../actions/chatActions";
 
 function ChatBox(props) {
+  //create a consumer using actioncable API
   const cable = Cable.createConsumer("ws://localhost:3000/cable");
+  //deconstruct state to access the currently selected chat
   let current = props.chats.current;
-  console.log("current: ", current);
   const [currentMessage, setCurrentMessage] = useState("");
   const updateCurrentChatMessage = (event) => {
     setCurrentMessage(event.target.value);
