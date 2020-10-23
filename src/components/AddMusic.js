@@ -11,28 +11,26 @@ function AddMusic (props) {
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {
+    //prevent page refresh
     e.preventDefault()
-    
+    //Create and populate a FormData object with audio file
     const formData = new FormData()
     formData.append('audio', uploadable, uploadable.name)
     formData.append('user_id', props.user.id)
     formData.append('title', title)
     formData.append('album', album)
-    
+    //send form and 
     const request = {
       method: "POST",
-      // headers: {
-      //   'Content-Type': "multipart/form-data"
-      //   },
       body: formData
     }
     fetch(`http://localhost:3000/api/v1/songs/`, request)
-    .then(r => r.json())
-    .then(data => handleResponse(data))
+    .then(r => r.json()).then(data => handleResponse(data))
     .catch(console.log)
   }
-
+  
   const handleResponse = (data) => {
+    //send song to redux store and close modal
     props.addSong(data)
     setOpen(false)
   }
