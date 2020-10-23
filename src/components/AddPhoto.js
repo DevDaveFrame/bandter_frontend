@@ -11,11 +11,7 @@ function AddPhoto (props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     let formData = new FormData()
-    formData.append(
-      "content",
-      uploadable,
-      uploadable.name
-    )
+    formData.append("content", uploadable, uploadable.name)
     formData.append('user_id', props.user.id)
     let request = {
       method: "POST",

@@ -3,11 +3,14 @@ import { connect } from 'react-redux'
 import { addSong } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
-
+// A modal that allows users 
 function AddMusic (props) {
+  //boolean determining whether form is rendered
   const [open, setOpen] = useState(false)
+  //form fields for file upload
   const [title, setTitle] = useState("");
   const [album, setAlbum] = useState("");
+  //uploadable should be a file
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {
@@ -19,7 +22,7 @@ function AddMusic (props) {
     formData.append('user_id', props.user.id)
     formData.append('title', title)
     formData.append('album', album)
-    //send form and 
+
     const request = {
       method: "POST",
       body: formData
@@ -36,6 +39,7 @@ function AddMusic (props) {
   }
 
   return (
+    // semantic-ui Modal and Form
     <Modal
       size="small"
       centered={true}
@@ -53,7 +57,7 @@ function AddMusic (props) {
             name="title" required={true} value={title} label="Title" 
             type="text" />
             <Form.Input onChange={(e) => setAlbum(e.target.value)} 
-            name="title" required={true} value={album} label="Album" 
+            name="album" required={true} value={album} label="Album" 
             type="text" />
             <Button type='submit'>Submit</Button>
           </Form>
