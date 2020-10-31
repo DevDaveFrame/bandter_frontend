@@ -4,7 +4,7 @@ import { addPhoto } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
 
-function AddPhoto (props) {
+function AddPhotoModal (props) {
   const [open, setOpen] = useState(false)
   const [uploadable, setUploadable] = useState(null)
 
@@ -53,4 +53,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, {addPhoto})(AddPhoto)
+export default connect(mapStateToProps, {addPhoto})(AddPhotoModal)

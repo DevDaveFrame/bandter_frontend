@@ -4,7 +4,7 @@ import { addSong } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
 // A modal that allows users 
-function AddMusic (props) {
+function AddMusicModal (props) {
   //boolean determining whether form is rendered
   const [open, setOpen] = useState(false)
   //form fields for file upload
@@ -70,4 +70,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, {addSong})(AddMusic)
+export default connect(mapStateToProps, {addSong})(AddMusicModal)
