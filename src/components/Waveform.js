@@ -46,7 +46,7 @@ export default function Waveform(props) {
 
     wavesurfer.current.on("finish", function() {
       wavesurfer.current.setVolume(volume)
-      setPlay(!playing);
+      setPlay(p => !p);
     });
 
     // Removes events, elements and disconnects Web Audio nodes.
@@ -55,7 +55,7 @@ export default function Waveform(props) {
   }, [audio, setLoading, setPercent]);
 
   const handlePlayPause = () => {
-    setPlay(!playing);
+    setPlay(p => !p);
     wavesurfer.current.playPause();
   };
 

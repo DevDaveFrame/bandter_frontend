@@ -1,6 +1,6 @@
 import React from 'react'
 import PhotoDisplay from '../components/PhotoDisplay.js'
-import AddPhoto from '../components/AddPhotoModal.js'
+import AddPhotoModal from '../components/AddPhotoModal.js'
 
 
 function ProfilePhotoContainer (props) {
