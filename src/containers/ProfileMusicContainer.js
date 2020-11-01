@@ -1,5 +1,5 @@
 import React from 'react';
-import AddMusic from '../components/AddMusicModal';
+import AddMusicModal from '../components/AddMusicModal';
 import MusicPlayer from '../components/MusicPlayer'
 
 function ProfileMusicContainer(props) {
