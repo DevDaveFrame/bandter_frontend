@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/manageUser';
 import friendsReducer from './reducers/manageFriends';
@@ -34,18 +34,9 @@ const rootReducer = (state, action) => {
   return appReducer(state, action)
 }
 
-//REMOVE REDUX_DEVTOOLS for PRODUCTION RELEASE
 const store = createStore(
-  rootReducer, compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ 
-    && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  rootReducer, applyMiddleware(thunk) 
 )
-
-
-
-
 
 ReactDOM.render(
   <Provider store={store}>

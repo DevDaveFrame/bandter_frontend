@@ -27,7 +27,7 @@ function AddMusicModal (props) {
       method: "POST",
       body: formData
     }
-    fetch(`http://localhost:3000/api/v1/songs/`, request)
+    fetch(`https://bandter-backend.heroku.com/api/v1/songs/`, request)
     .then(r => r.json()).then(data => handleResponse(data))
     .catch(console.log)
   }

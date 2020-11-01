@@ -7,7 +7,7 @@ export const getProfile = (id) => {
         Authorization: `Bearer ${localStorage.token}`
       }
     }
-    fetch(`http://localhost:3000/api/v1/users/${id}`, request)
+    fetch(`https://bandter-backend.heroku.com/api/v1/users/${id}`, request)
     .then(r => r.json())
     .then(data => dispatch({type: "DISPLAY_FRIEND", data}))
   }
