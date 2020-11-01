@@ -1,12 +1,12 @@
 import React from 'react';
-import AddMusic from '../components/AddMusic';
+import AddMusic from '../components/AddMusicModal';
 import MusicPlayer from '../components/MusicPlayer'
 
 function ProfileMusicContainer(props) {
   return (
     <div className='profile-music-container'>
       {props.user.id === parseInt(localStorage.current, 10) 
-      ? <AddMusic />
+      ? <AddMusicModal />
       : null}
       {props.user.songs && props.user.songs[0] ? <MusicPlayer songs={props.user.songs}/> : null}
     </div>
