@@ -25,7 +25,7 @@ function ProfilePicUpdate (props) {
       method: "PATCH",
       body: formData
     }
-    fetch(`http://localhost:3000/api/v1/users/${props.user.id}`, request)
+    fetch(`https://bandter-backend.heroku.com/api/v1/users/${props.user.id}`, request)
     .then(r => r.json())
     .then(data => handleResponse(data))
     .catch(console.log)
