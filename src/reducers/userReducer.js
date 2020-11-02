@@ -6,6 +6,7 @@ export default function userReducer(state = {}, action) {
   let photo_to_delete;
   let photo_idx;
   let friendRequests;
+  
   switch (action.type) {
     case 'START_LOGGING_IN':
       return {...state, songs: [], photos: [], loggedIn: true}

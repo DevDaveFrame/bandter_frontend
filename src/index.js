@@ -7,14 +7,14 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk'
-import userReducer from './reducers/manageUser';
-import friendsReducer from './reducers/manageFriends';
-import messagesReducer from './reducers/manageMessages';
-import chatsReducer from './reducers/manageChats'
-import subscriptionsReducer from './reducers/manageSubscriptions';
-import discoveryReducer from './reducers/manageDiscovery';
-import genreReducer from './reducers/manageGenres';
-import instrumentsReducer from './reducers/manageInstruments';
+import userReducer from './reducers/userReducer';
+import friendsReducer from './reducers/friendsReducer';
+import messagesReducer from './reducers/messagesReducer';
+import chatsReducer from './reducers/chatsReducer'
+import subscriptionsReducer from './reducers/subscriptionsReducer';
+import discoveryReducer from './reducers/discoveryReducer';
+import genreReducer from './reducers/genreReducer';
+import instrumentsReducer from './reducers/instrumentsReducer';
 
 const appReducer = combineReducers({
   user: userReducer,
