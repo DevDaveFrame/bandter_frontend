@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Pacifico&family=Permanent+Marker&display=swap');
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Permanent+Marker&display=swap');
 
 div.header {
   font-family: 'Inconsolata', monospace;
@@ -34,6 +25,9 @@ div.ui.red.inverted.menu.navbar a.header.item{
   padding-right: 2rem;
 }
 
+h2.ui.header {
+  color: white;
+}
 
 body {
   background: #101012;
@@ -42,6 +36,399 @@ body {
   font-weight: 500;
   height: 100%;
 }
+
+/* ///////////////////////////////// */
+/* //////// WELCOME SCREEN ///////// */
+/* ///////////////////////////////// */
+
+.welcome .bg-image{
+  box-sizing: border-box;
+  background-image: url(./background.jpg);
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 94vh;
+}
+
+.bg-text {
+  font-size: 2rem;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.777);
+  color: white;
+  font-weight: bold;
+  border: 10px solid #93291F;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 60%;
+  padding: 5rem;
+  text-align: center;
+  border-radius: 10px;
+  border-bottom-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.bg-text h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 8rem;
+}
+
+/* **************************** */
+/* ******* AUTH MODAL ******** */
+/* ************************** */
+
+div.ui.bottom.attached.segment.auth-modal {
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+div.ui.tiny.modal.transition.visible.active.auth-modal {
+  border-radius: 20px;
+  background-color: #932a1e;
+}
+
+.ui.bottom.attached.segment.auth-modal {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 5px;
+  background-color: #131313;
+  padding: 2rem 5rem;
+}
+.ui.bottom.attached.segment.auth-modal{
+  color: white;
+}
+
+form.ui.form.auth-form label{
+  color: white;
+}
+
+/* **************************** */
+/* **** PROFILE FEATURES ***** */
+/* ************************** */
+
+.profile-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.profile-banner {
+  width: 100vw;
+  max-height: 25vh;
+  background-size: cover;
+  background-color: #93291E;
+  -webkit-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
+box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
+}
+.profile-banner .profile-pic {
+  background: #000;
+  position: relative;
+  top: 8vh;
+  left: 23%;
+  max-width: 150px;
+  border: 1px solid rgb(198, 198, 198);
+  border-radius: 5px;
+}
+
+.profile-banner i {
+  position: relative;
+  top: -2rem;
+}
+
+.profile-holder {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.profile-content {
+  justify-self: flex-end;
+  width: 70%;
+}
+
+/* ******* BIO SECTION ******* */
+
+.biosection {
+  padding: 2rem 2rem;
+  justify-self: flex-start;
+  width: 30%;
+  height: 63vh;
+  border-right: 1px solid rgba(225, 225, 225, 0.5);
+  color: white;
+  text-align: center;
+}
+
+.biosection p {
+  text-align: left;
+}
+
+div.ui.profile-menu.menu {
+  border-radius: 0;
+  background-color: #000000;
+  color: #c94b4b;
+  padding-left: 17%;
+}
+
+.biosection h1,h2,h3,h4,h5 {
+  color: white;
+  margin-left: auto;
+  margin-right: 25%;
+  margin-bottom: .5rem;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 300;
+}
+
+.bio-bio {
+  margin-bottom: 1.5rem;
+}
+
+.bio-instruments {
+  margin-bottom: 1.5rem;
+}
+
+.bio-instruments p{
+  line-height: 1.8;
+}
+
+.bio-genres {
+  margin-bottom: 1.5rem;
+}
+.bio-genres p{
+  line-height: 1.8;
+}
+
+/* ********************************** */
+/* **** PROFILE MUSIC FEATURES ***** */
+/* ******************************** */
+
+.profile-music-container {
+  padding: 3rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+/* The ADD SONG Button */
+.profile-music-container button{
+  margin-bottom: 1rem;
+}
+
+#waveform {
+  margin-top: .5rem;
+} 
+
+.controls {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  color: azure;
+}
+
+#volume {
+  margin-left: 1rem;
+}
+
+.volume-controls {
+  min-width: 200px;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  box-shadow: 3px 3px 2px rgba(0,0,0,0.4),
+  -2px -2px 2px rgba(143, 143, 143, 0.4);
+}
+
+
+
+.controls button {
+  margin-right: 30px;
+  margin: 1rem;
+  padding: 10px;
+  padding-left: 12px;
+  border-radius: 35px;
+  border: 0;
+  background: #1B1B1B;
+  -webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
+          box-shadow: 3px 3px 2px rgba(0,0,0,0.4),
+                      -2px -2px 2px rgba(143, 143, 143, 0.4);
+}
+
+.controls i {
+  color: #CD2430;
+  text-shadow: 2 2 5px rgba(0,0,0,0.9);
+}
+
+.controls button:active {
+  margin-right: 30px;
+  margin: 1rem;
+  padding: 10px;
+  padding-left: 12px;
+  border-radius: 35px;
+  border: 0;
+  background: #1B1B1B;
+  -webkit-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
+    -moz-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
+          box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9),
+                      inset -2px -2px 2px rgba(143, 143, 143, 0.4);
+}
+
+.controls i:active {
+  color: #CD2430;
+  text-shadow: 2 2 5px rgba(0,0,0,0.9);
+}
+
+.controls button:focus {
+  outline: none;
+}
+
+.header-row {
+  text-align: center;
+  align-content: center;
+}
+div.ui.red.progress.progress{
+  display: flex;
+  flex-flow: column no wrap;
+  padding-bottom: -2rem;
+}
+div.ui.red.progress.hidden {
+  display: none;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@ PROFILE PHOTO FEATURES @@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+.profile-photo-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.profile-photo-gallery {
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.photo-thumb {
+  height: auto;
+  width: 10rem;
+  margin: .5rem;
+}
+
+.photo-display {
+  height: auto;
+  width: 90%;
+  margin: 30px;
+}
+
+.ui.small.modal.transition.visible.active.photo-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* *********************************** */
+/* **** PROFILE FRIEND FEATURES ***** */
+/* ********************************* */
+
+.profile-friend-container {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: .5rem 2rem;
+}
+
+/* TODO COMBINE list and requests \/\/\/ */
+.friend-list {
+  justify-content: flex-start;
+  text-align: center;
+  align-items: stretch;
+  min-width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: .5rem 1rem;
+}
+.friend-requests {
+  justify-content: flex-start;
+  text-align: center;
+  align-items: stretch;
+  min-width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: .5rem 1rem;
+}
+/* END TODO /\/\/\ */
+
+.friend-requests h2, .friend-list h2{
+  margin: 1rem;
+}
+
+.friend-card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.friend-card a {
+  color: #fff;
+}
+.friend-card h5 {
+  margin: 0;
+}
+
+.friend-card-thumb {
+  height: 100%;
+  width: auto;
+  margin-right: .5rem;
+}
+
+.friend-request {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.friend-request button{
+  margin-top: .8rem;
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 10px;
+  padding: .5rem;
+  align-self: center;
+}
+
+.friend-request-thumb {
+  height: 100%;
+  width: auto;
+  margin-right: 1rem;
+}
+
+/* **************************** */
+/* *******CHAT FEATURES******* */
+/* ************************** */
 
 .chat-container {
   height: 80vh;
@@ -206,181 +593,9 @@ body {
   font-size: .75rem;
 }
 
-div.ui.bottom.attached.segment.auth-modal {
-  display:flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-container {
-  display: flex;
-  flex-flow: column nowrap;
-}
-.profile-banner {
-  width: 100vw;
-  max-height: 25vh;
-  background-size: cover;
-  background-color: #93291E;
-  -webkit-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
-}
-.profile-banner .profile-pic {
-  background: #000;
-  position: relative;
-  top: 8vh;
-  left: 23%;
-  max-width: 150px;
-  /* box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
-  -webkit-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow:  0px 5px 5px 2px rgba(0,0,0,0.75); */
-  border: 1px solid rgb(198, 198, 198);
-  border-radius: 5px;
-}
-
-.profile-banner i {
-  position: relative;
-  top: -2rem;
-}
-
-.profile-holder {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: stretch;
-  align-items: stretch;
-}
-
-.profile-content {
-  justify-self: flex-end;
-  width: 70%;
-}
-
-.biosection {
-  padding: 2rem 2rem;
-  justify-self: flex-start;
-  width: 30%;
-  height: 63vh;
-  border-right: 1px solid rgba(225, 225, 225, 0.5);
-  color: white;
-  text-align: center;
-}
-
-.biosection p {
-  text-align: left;
-}
-
-div.ui.profile-menu.menu {
-  border-radius: 0;
-  background-color: #000000;
-  color: #c94b4b;
-  padding-left: 17%;
-}
-
-.biosection h1,h2,h3,h4,h5 {
-  color: white;
-  margin-left: auto;
-  margin-right: 25%;
-  margin-bottom: .5rem;
-  font-family: 'Permanent Marker', cursive;
-  font-weight: 300;
-}
-
-.profile-music-container {
-  padding: 3rem;
-  padding-top: 0;
-  text-align: center;
-}
-.profile-music-container button{
-  margin-bottom: 1rem;
-}
-.controls {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
-  color: azure;
-}
-
-.volume-controls {
-  min-width: 200px;
-}
-
-
-.controls button {
-  margin-right: 30px;
-  margin: 1rem;
-  padding: 10px;
-  padding-left: 12px;
-  border-radius: 35px;
-  border: 0;
-  background: #93291F;
-  -webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
-     -moz-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
-          box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.9);
-}
-
-.controls button:active {
-  margin-right: 30px;
-  margin: 1rem;
-  padding: 10px;
-  padding-left: 12px;
-  border-radius: 35px;
-  border: 0;
-  background: #93291F;
-  -webkit-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
-     -moz-box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
-          box-shadow: inset 0px 1px 2px 1px rgba(0,0,0,0.9);
-}
-
-.controls button:focus {
-  outline: none;
-}
-
-.header-row {
-  text-align: center;
-  align-content: center;
-}
-div.ui.red.progress.progress{
-  display: flex;
-  flex-flow: column no wrap;
-  padding-bottom: -2rem;
-}
-div.ui.red.progress.hidden {
-  display: none;
-}
-
-/* .playlist-item {
-  padding: 1rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  color: azure;
-  min-height: 30px;
-}
-
-.playlist-item.selected {
-  padding: 1rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #3f3f3f82
-}
-
-.track-info-title {
-  justify-self: flex-start;
-}
-
-.track-info-album {
-  justify-self: flex-end;
-}
-
-.track-info-duration {
-  justify-self: flex-end;
-} */
+/* ****************************** */
+/* **** DISCOVERY FEATURES ***** */
+/* **************************** */
 
 .discovery-container {
   color: white;
@@ -444,82 +659,6 @@ div.item.discover-user {
   border-radius: 10px;
 }
 
-.profile-friend-container {
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-  padding: 2rem;
-}
-.friend-list {
-  justify-content: flex-start;
-  text-align: center;
-  align-items: stretch;
-  min-width: 200px;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 1rem;
-}
-.friend-requests {
-  justify-content: flex-start;
-  text-align: center;
-  align-items: stretch;
-  min-width: 200px;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 1rem;
-}
-
-.friend-requests h2, .friend-list h2{
-  margin: 1rem;
-}
-
-.friend-card {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  margin-bottom: 1rem;
-}
-
-.friend-card h5 {
-  margin: 0;
-}
-
-.friend-card-thumb {
-  height: 100%;
-  width: auto;
-  margin-right: .5rem;
-}
-
-.friend-request {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  margin-bottom: 1rem;
-}
-
-.friend-request button{
-  margin-top: .8rem;
-  margin-left: 1rem;
-  border: 0;
-  border-radius: 10px;
-  padding: .5rem;
-  align-self: center;
-}
-
-.friend-request-thumb {
-  height: 100%;
-  width: auto;
-  margin-right: 1rem;
-}
-
 .profile-pic-view {
   max-height: 60vh;
   margin: auto;
@@ -531,26 +670,6 @@ div.item.discover-user {
   align-items: center;
   text-align: center;
 }
-
-.bio-bio {
-  margin-bottom: 1.5rem;
-}
-
-.bio-instruments {
-  margin-bottom: 1.5rem;
-}
-
-.bio-instruments p{
-  line-height: 1.8;
-}
-
-.bio-genres {
-  margin-bottom: 1.5rem;
-}
-.bio-genres p{
-  line-height: 1.8;
-}
-
 
 /* ############################## */
 /* ########## SLIDERS ########### */
@@ -643,102 +762,159 @@ input[type=range]:focus::-ms-fill-upper {
   background: #ED344B;
 }
 
-/*///////////////////*/
-.welcome .bg-image{
-  box-sizing: border-box;
-  background-image: url(./background.jpg);
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 94vh;
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@  RESPONSIVE DESIGN  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/*
+ * Breakpoints set with help from: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
 }
 
-.bg-text {
-  font-size: 2rem;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.777);
-  color: white;
-  font-weight: bold;
-  border: 10px solid #93291F;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 60%;
-  padding: 5rem;
-  text-align: center;
-  border-radius: 10px;
-  border-bottom-left-radius: 80px;
-  border-top-right-radius: 80px;
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
 }
 
-.bg-text h1{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 8rem;
-}
-div.ui.tiny.modal.transition.visible.active.auth-modal {
-  border-radius: 20px;
-  background-color: #932a1e;
-}
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
 
-.ui.bottom.attached.segment.auth-modal {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 5px;
-  background-color: #131313;
-  padding: 2rem 5rem;
-}
-.ui.bottom.attached.segment.auth-modal{
-  color: white;
-}
-
-form.ui.form.auth-form label{
-  color: white;
-}
-
-h2.ui.header {
-  color: white;
-}
-
-.profile-photo-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem;
-}
-
-.profile-photo-gallery {
-  overflow-y: scroll;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
+  .profile-holder {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
   
+  .profile-content {
+    justify-self: flex-end;
+    width: 100%;
+  }
+
+  .biosection {
+    padding: 2rem 2rem;
+    justify-self: flex-start;
+    width: 100%;
+    height: 63vh;
+    border-right: 1px solid rgba(225, 225, 225, 0.5);
+    color: white;
+    text-align: center;
+  }
+
 }
 
-.photo-thumb {
-  height: auto;
-  width: 10rem;
-  margin: .5rem;
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+  .biosection {
+    padding: 2rem 2rem;
+    justify-self: flex-start;
+    width: 100%;
+    height: 63vh;
+    border-right: 1px solid rgba(225, 225, 225, 0.5);
+    color: white;
+    text-align: center;
+  }
+
+  .profile-holder {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  
+  .profile-content {
+    justify-self: flex-end;
+    width: 100%;
+  }
+
 }
 
-.photo-display {
-  height: auto;
-  width: 90%;
-  margin: 30px;
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+  .biosection {
+    padding: 2rem 2rem;
+    justify-self: flex-start;
+    width: 100%;
+    height: 63vh;
+    border-right: 1px solid rgba(225, 225, 225, 0.5);
+    color: white;
+    text-align: center;
+  }
+
+  .profile-holder {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  
+  .profile-content {
+    justify-self: flex-end;
+    width: 100%;
+  }
+
 }
 
-.ui.small.modal.transition.visible.active.photo-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+  .biosection {
+    padding: 2rem 2rem;
+    justify-self: flex-start;
+    width: 100%;
+    height: 63vh;
+    border-right: 1px solid rgba(225, 225, 225, 0.5);
+    color: white;
+    text-align: center;
+  }
+
+  .profile-holder {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  
+  .profile-content {
+    justify-self: flex-end;
+    width: 100%;
+  }
+
 }
 
-#waveform {
-  margin-top: .5rem;
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }

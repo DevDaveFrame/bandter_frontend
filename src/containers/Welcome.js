@@ -3,9 +3,9 @@ import React from "react";
 function Welcome() {
   return (
     <div className="welcome">
-      <div class="bg-image"></div>
+      <div className="bg-image"></div>
 
-      <div class="bg-text">
+      <div className="bg-text">
         <h1>Bandter</h1>
         <p>Local Music Anywhere</p>
       </div>

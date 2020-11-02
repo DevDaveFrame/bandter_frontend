@@ -7,7 +7,7 @@ export function fetchGenres () {
         Accept: "application/json"
       }
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/genres`, request)
+    fetch(`http://localhost:3000/api/v1/genres`, request)
     .then(r => r.json())
     .then(genres => dispatch({type: 'CACHE_GENRES', genres}))
   } 

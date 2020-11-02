@@ -54,6 +54,8 @@ export default function Waveform(props) {
     return () => wavesurfer.current.destroy();
   }, [audio, setLoading, setPercent]);
 
+  // Dependency array between curly and paren above: 
+
   const handlePlayPause = () => {
     setPlay(p => !p);
     wavesurfer.current.playPause();
@@ -70,12 +72,12 @@ export default function Waveform(props) {
   };
 
   return (
-    <div>
+    <div id="music-player">
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
         <button onClick={handlePlayPause}>{!playing ?<Icon size="large" fitted name='play'/>:<Icon size="large" fitted name='pause'/>}</button>
         <div className="volume-controls">
-          <label htmlFor="volume">Volume: </label>
+          <label htmlFor="volume"><Icon size="large" fitted name={volume === 0.01 ? 'volume off' : "volume down"}/></label>
           <input
             type="range"
             id="volume"

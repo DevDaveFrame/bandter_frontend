@@ -23,7 +23,7 @@ function ProfilePicUpdate (props) {
       },
       body: JSON.stringify({user: {first_name, last_name, bio, narrative, location}})
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/users/${props.user.id}`, request)
+    fetch(`http://localhost:3000/api/v1/users/${props.user.id}`, request)
     .then(r => r.json())
     .then(data => handleResponse(data))
     .catch(console.log)

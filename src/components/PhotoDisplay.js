@@ -15,7 +15,7 @@ function PhotoDisplay(props) {
       Authorization: `Bearer ${localStorage.token}` 
       }
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/photos/${photo.id}`, request)
+    fetch(`http://localhost:3000/api/v1/photos/${photo.id}`, request)
     .then(r => r.json())
     .then(data => handleResponse(data))
   }

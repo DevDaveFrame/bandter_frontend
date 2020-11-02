@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/userReducer';
 import friendsReducer from './reducers/friendsReducer';
@@ -35,7 +35,7 @@ const rootReducer = (state, action) => {
 }
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunk) 
+  rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 )
 
 ReactDOM.render(

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cable from "actioncable";
 import { connect } from "react-redux";
 import ChatBubble from "./ChatBubble";
@@ -13,6 +13,7 @@ function ChatBox(props) {
   //create a consumer using actioncable API
   const cable = Cable.createConsumer("ws://localhost:3000/cable");
   
+  //for updating state in controlled form
   const updateCurrentChatMessage = (event) => {
     setCurrentMessage(event.target.value);
   };
@@ -33,6 +34,7 @@ function ChatBox(props) {
     props.subscriptions[current.id].create(message);
   };
 
+useEffect(() => {
   if (current.id && !(current.id in props.subscriptions)) {
     props.setSubscriptions(
       current.id,
@@ -57,6 +59,7 @@ function ChatBox(props) {
       )
     );
   }
+})
 
   return (
     <div className="chat-box">
