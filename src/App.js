@@ -16,11 +16,11 @@ import ChatContainer from './containers/ChatContainer';
 class App extends React.Component {
 
   // On initial load...
+  //load instruments and genres...
+  //check localStorage for a logged in user and set to current
   componentDidMount(){
-    //load instruments and genres...
     this.props.fetchGenres()
     this.props.fetchInstruments()
-    //check localStorage for a logged in user and set to current
     if (localStorage.token) {
       this.props.setUser()
     }
@@ -73,7 +73,7 @@ class App extends React.Component {
             }
           />
       </Router>
-    );
+    )
   }
 }
 

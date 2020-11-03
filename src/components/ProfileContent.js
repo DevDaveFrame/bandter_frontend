@@ -7,6 +7,7 @@ import ProfileFriendContainer from '../containers/ProfileFriendContainer'
 export const ProfileContent = (props) => {
 const [activeItem, setActiveItem] = useState('music')
 const handleItemClick = (e, { name }) => setActiveItem(name)
+
 const switchProfileDisplay = (activeItem) => {
   switch (activeItem) {
     case 'music':
@@ -27,19 +28,16 @@ const switchProfileDisplay = (activeItem) => {
             name='music'
             active={activeItem === 'music'}
             onClick={handleItemClick}
-            // position='right'
           />
           <Menu.Item
             name='photos'
             active={activeItem === 'photos'}
             onClick={handleItemClick}
-            // position='right'
           />
           <Menu.Item
             name='friends'
             active={activeItem === 'friends'}
             onClick={handleItemClick}
-            // position='right'
           />
       </Menu>
       {switchProfileDisplay(activeItem)}

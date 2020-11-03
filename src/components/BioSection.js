@@ -5,7 +5,6 @@ import GenreUpdate from "./GenreUpdate";
 
 function BioSection(props) {
   const user = props.user;
-
   return (
     <div className="biosection">
       <h2 className="bio-name">{user.name}</h2>
@@ -49,7 +48,7 @@ function BioSection(props) {
       ? <UserUpdate />
       : null}
     </div>
-  );
+  )
 }
 
 export default BioSection;

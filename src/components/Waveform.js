@@ -11,9 +11,7 @@ const formWaveSurferOptions = ref => ({
   barRadius: 3,
   responsive: true,
   height: 80,
-  // If true, normalize by the maximum peak instead of 1.0.
   normalize: true,
-  // Use the PeakCache to improve rendering speed of large waveforms.
   partialRender: true
 });
 
@@ -54,8 +52,6 @@ export default function Waveform(props) {
     return () => wavesurfer.current.destroy();
   }, [audio, setLoading, setPercent]);
 
-  // Dependency array between curly and paren above: 
-
   const handlePlayPause = () => {
     setPlay(p => !p);
     wavesurfer.current.playPause();
@@ -71,6 +67,8 @@ export default function Waveform(props) {
     }
   };
 
+  // NOTE: waveSurfer recognize value of `0` same as `1`
+  //  so volume must be set to non-zero min
   return (
     <div id="music-player">
       <div id="waveform" ref={waveformRef} />
@@ -82,8 +80,6 @@ export default function Waveform(props) {
             type="range"
             id="volume"
             name="volume"
-            // waveSurfer recognize value of `0` same as `1`
-            //  so we need to set some zero-ish value for silence
             min="0.01"
             max="1"
             step=".025"

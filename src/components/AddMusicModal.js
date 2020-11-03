@@ -14,9 +14,7 @@ function AddMusicModal (props) {
   const [uploadable, setUploadable] = useState(null)
 
   const handleSubmit = (e) => {
-    //prevent page refresh
     e.preventDefault()
-    //Create and populate a FormData object with audio file
     const formData = new FormData()
     formData.append('audio', uploadable, uploadable.name)
     formData.append('user_id', props.user.id)
@@ -32,14 +30,13 @@ function AddMusicModal (props) {
     .catch(console.log)
   }
   
+  //send song to redux store and close modal
   const handleResponse = (data) => {
-    //send song to redux store and close modal
     props.addSong(data)
     setOpen(false)
   }
 
   return (
-    // semantic-ui Modal and Form
     <Modal
       size="small"
       centered={true}
