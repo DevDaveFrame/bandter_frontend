@@ -17,7 +17,7 @@ function AddPhotoModal (props) {
       method: "POST",
       body: formData
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/photos/`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/photos/`, request)
     .then(r => r.json())
     .then(photo => handleResponse(photo))
     .catch(console.log)

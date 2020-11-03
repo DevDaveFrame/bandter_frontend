@@ -9,7 +9,7 @@ export function beginSearch (formObj) {
       },
       body: JSON.stringify(formObj)
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/discover`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/discover`, request)
     .then(r => r.json())
     .then(users => dispatch({type: 'LOAD_SEARCH', users}))
     .catch(console.log)
@@ -27,7 +27,7 @@ export function handleMatch (friendObj) {
       },
       body: JSON.stringify(friendObj)
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/friend_request`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/friend_request`, request)
     .then(r => r.json())
     .then(match => dispatch({type: 'ADD_MATCH', match}) )
   }

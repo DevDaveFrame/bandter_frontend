@@ -11,7 +11,7 @@ export function setUser () {
         Authorization: `Bearer ${localStorage.token}`
       }
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/users/${localStorage.current}`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/users/${localStorage.current}`, request)
     .then(r => r.json())
     .then(data => dispatch({type: 'SET_USER', data}))
     .catch(() => dispatch({type: 'LOGOUT_USER'}))
@@ -30,7 +30,7 @@ export function loginUser(login){
       },
       body: JSON.stringify(login)
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/login`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/login`, request)
     .then(r => r.json())
     .then(data => dispatch({type: 'LOGIN_USER', data})
     )
@@ -69,7 +69,7 @@ export function updateInstrument(user, instruments) {
       },
       body: JSON.stringify({user_instrument: {user_id: user.id, instruments:[...instruments]}})
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/user_instruments/`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/user_instruments/`, request)
     .then(r => r.json())
     .then(instruments => dispatch({type: "UPDATE_USER_INSTRUMENTS", instruments}))
     .catch(console.log)
@@ -87,7 +87,7 @@ export function updateGenre(user, genres) {
       },
       body: JSON.stringify({user_genre: {user_id: user.id, genres: [...genres]}})
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/user_genres/`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/user_genres/`, request)
     .then(r => r.json())
     .then(genres => dispatch({type: "UPDATE_USER_GENRES", genres}))
     .catch(console.log)

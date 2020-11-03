@@ -42,7 +42,7 @@ class Signup extends React.Component {
       },
       body: JSON.stringify({user: this.state})
     }
-    fetch(`https://bandter-backend.heroku.com/api/v1/signup`, request)
+    fetch(`https://bandter-backend.herokuapp.com/api/v1/signup`, request)
     .then(r => r.json())
     .then(data => this.props.loginUser(data))
   }
