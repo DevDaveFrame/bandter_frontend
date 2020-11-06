@@ -9,7 +9,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/userReducer';
 import friendsReducer from './reducers/friendsReducer';
-import messagesReducer from './reducers/messagesReducer';
 import chatsReducer from './reducers/chatsReducer'
 import subscriptionsReducer from './reducers/subscriptionsReducer';
 import discoveryReducer from './reducers/discoveryReducer';
@@ -19,7 +18,6 @@ import instrumentsReducer from './reducers/instrumentsReducer';
 const appReducer = combineReducers({
   user: userReducer,
   friends: friendsReducer,
-  messages: messagesReducer,
   chats: chatsReducer,
   subscriptions: subscriptionsReducer,
   discovery: discoveryReducer,

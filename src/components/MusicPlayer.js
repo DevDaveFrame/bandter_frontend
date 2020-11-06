@@ -15,13 +15,12 @@ function MusicPlayer(props) {
   }
 
   return (
-    //if there are no tracks, don't load music player
     track === null 
     ?<div>NO TRACKS HERE YET</div> 
     :<div className='music-player'>
       <Progress className={loading ? "progress" : "hidden"} percent={percent} color='red' />
       <Waveform 
-      className={!loading ? "waveform" : "hidden"}
+      className="waveform"
       setLoading={setLoading}
       setPercent={setPercent}
       audio={track.description} />

@@ -8,6 +8,9 @@ import { pushToCurrentChat } from "../actions/chatActions";
 function ChatBox(props) {
   //deconstruct state to access the currently selected chat
   let current = props.chats.current;
+  let currentChat = props.chats.matches.find(match => parseInt(match.id) === current)
+  console.log('currentChat: ', currentChat);
+
   const [currentMessage, setCurrentMessage] = useState("");
 
   //create a consumer using actioncable API
@@ -31,17 +34,17 @@ function ChatBox(props) {
   };
 
   const postMessage = (message) => {
-    props.subscriptions[current.id].create(message);
+    props.subscriptions[current].create(message);
   };
 
 useEffect(() => {
-  if (current.id && !(current.id in props.subscriptions)) {
+  if (current && !(current in props.subscriptions)) {
     props.setSubscriptions(
-      current.id,
+      current,
       cable.subscriptions.create(
         {
           channel: "MatchChatChannel",
-          match_chat_id: current.id,
+          match_chat_id: current,
         },
         {
           connected: () => {},
@@ -52,7 +55,7 @@ useEffect(() => {
             this.perform("create", {
               content: chatContent,
               user_id: props.user.id,
-              match_chat_id: current.id,
+              match_chat_id: current,
             });
           },
         }
@@ -63,15 +66,15 @@ useEffect(() => {
 
   return (
     <div className="chat-box">
-      {current.id ? (
+      {currentChat ? (
         <div id="chat-display" className="chat-display">
-          {current.attributes.messages.map((message) => (
+          {currentChat.attributes.messages.map((message) => (
             <ChatBubble
               key={message.id}
               username={
-                current.attributes.friender_id === message.user_id
-                  ? current.attributes.friender_name
-                  : current.attributes.friendee_name
+                currentChat.attributes.friender_id === message.user_id
+                  ? currentChat.attributes.friender_name
+                  : currentChat.attributes.friendee_name
               }
               message={message}
             />
