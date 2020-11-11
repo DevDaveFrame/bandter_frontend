@@ -29,13 +29,17 @@ function AddMusicModal (props) {
     }
     fetch(`http://localhost:3000/api/v1/songs/`, request)
     .then(r => r.json()).then(data => handleResponse(data))
-    .catch(console.log)
+    .catch(error => handleError(error))
   }
   
   const handleResponse = (data) => {
     //send song to redux store and close modal
     props.addSong(data)
     setOpen(false)
+  }
+
+  const handleError = (error) => {
+    console.log(error)
   }
 
   return (
