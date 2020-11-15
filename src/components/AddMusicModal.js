@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addSong } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
-// A modal that allows users 
+// A modal that allows users to upload audio files
 function AddMusicModal (props) {
   //boolean determining whether form is rendered
   const [open, setOpen] = useState(false)
