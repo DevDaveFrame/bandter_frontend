@@ -11,32 +11,25 @@ export default function userReducer(state = {}, action) {
     case 'START_LOGGING_IN':
       return {...state, songs: [], photos: [], loggedIn: true}
     case "LOGIN_USER":
-    user = action.data.user.data.attributes
-    friendRequests = user.friend_requests.data
-    songs = action.data.user.included.filter(included => included.type === "song");
-    photos = action.data.user.included.filter(included => included.type === "photo");
+    friendRequests = action.user.friend_requests.data
     localStorage.token = action.data.token;
     localStorage.current = user.id
       return {
         ...state,
-        ...user,
+        ...action.user,
         friend_requests: [...friendRequests],
-        photos: [...photos],
-        songs: [...songs],
+        songs: [...action.songs],
+        photos: [...action.photos],
         loggedIn: true
       };
     case "SET_USER":
-      console.log(action);
-      user = action.data.user.data.attributes
-      friendRequests = user.friend_requests.data
-      songs = action.data.user.included.filter(included => included.type === "song");
-      photos = action.data.user.included.filter(included => included.type === "photo");
+      friendRequests = action.user.friend_requests.data
       return {
         ...state,
-        ...user,
+        ...action.user,
         friend_requests: [...friendRequests],
-        photos: [...photos],
-        songs: [...songs],
+        songs: [...action.songs],
+        photos: [...action.photos],
         loggedIn: true
       };
     case "UPDATE_USER":

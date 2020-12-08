@@ -2,18 +2,16 @@ export default function chatsReducer(state = {current: null, matches: []}, actio
   let matches;
   switch (action.type) {
     case "LOGIN_USER":
-      matches = action.data.user.included.filter(included => included.type === "match_chat");
       return {
         ...state,
         current: {},
-        matches: matches
+        matches: action.matches
       };
     case "SET_USER":
-        matches = action.data.user.included.filter(included => included.type === "match_chat");
         return {
           ...state,
           current: {},
-          matches: matches
+          matches: action.matches
         };
     case "SET_CURRENT_CHAT":
       return {
