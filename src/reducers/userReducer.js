@@ -1,8 +1,6 @@
 
 export default function userReducer(state = {}, action) {
   let user;
-  let songs;
-  let photos;
   let photo_to_delete;
   let photo_idx;
   let friendRequests;

@@ -113,44 +113,24 @@ form.ui.form.auth-form label{
 /* ************************** */
 
 .profile-container {
+  height: 100%;
   display: flex;
   flex-flow: column nowrap;
 }
 .profile-banner {
   width: 100vw;
   max-height: 25vh;
+  min-height: 20vh;
   background-size: cover;
   background-color: #93291E;
   -webkit-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
 -moz-box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
 box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
 }
-.profile-banner .profile-pic {
-  background: #000;
-  position: relative;
-  top: 8vh;
-  left: 23%;
-  max-width: 150px;
-  border: 1px solid rgb(198, 198, 198);
-  border-radius: 5px;
-}
 
 .profile-banner i {
   position: relative;
   top: -2rem;
-}
-
-.profile-banner .avatar {
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-}
-
-.profile-banner .avatar img {
-  display: block;
-  border-radius: 50%;
-  width: 100%;
-  object-fit: cover;
 }
 
 .profile-holder {
@@ -161,18 +141,21 @@ box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
 }
 
 .profile-content {
+  border-left: 1px solid rgba(225, 225, 225, 0.5);
   justify-self: flex-end;
   width: 70%;
 }
 
 /* ******* BIO SECTION ******* */
 
+
 .biosection {
-  padding: 2rem 2rem;
+  position: relative;
+  top: -15vh;
+  padding: 0 2rem;
   justify-self: flex-start;
   width: 30%;
-  height: 63vh;
-  border-right: 1px solid rgba(225, 225, 225, 0.5);
+  height: 100%;
   color: white;
   text-align: center;
 }
