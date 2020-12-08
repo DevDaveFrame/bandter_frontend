@@ -140,6 +140,19 @@ box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
   top: -2rem;
 }
 
+.profile-banner .avatar {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-banner .avatar img {
+  display: block;
+  border-radius: 50%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .profile-holder {
   display: flex;
   flex-flow: row nowrap;
@@ -178,14 +191,16 @@ div.ui.profile-menu.menu {
 .biosection h1,h2,h3,h4,h5 {
   color: white;
   margin-left: auto;
-  margin-right: 25%;
-  margin-bottom: .5rem;
   font-family: 'Permanent Marker', cursive;
   font-weight: 300;
 }
 
 .bio-bio {
   margin-bottom: 1.5rem;
+}
+
+.bio-name {
+  margin: 0;
 }
 
 .bio-instruments {
