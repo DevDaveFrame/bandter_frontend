@@ -20,6 +20,5 @@ export function handleMatch (friendObj) {
 };
 
 export function pushToCurrentChat (message) {
-  console.log('message: ', message);
   return { type: "ADD_MESSAGE", message: message.data.attributes }
 }

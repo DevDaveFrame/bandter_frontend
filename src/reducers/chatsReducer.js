@@ -1,5 +1,4 @@
 export default function chatsReducer(state = {current: null, matches: []}, action) {
-  let matches;
   switch (action.type) {
     case "LOGIN_USER":
       return {
@@ -29,7 +28,6 @@ export default function chatsReducer(state = {current: null, matches: []}, actio
         ? {...match, attributes: {...match.attributes, messages: [...match.attributes.messages, message]}}
         : match
       })
-      console.log('updatedMatches: ', updatedMatches);
       return {
         ...state,
         matches: updatedMatches
