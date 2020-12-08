@@ -1,19 +1,16 @@
 export default function chatsReducer(state = {current: null, matches: []}, action) {
-  let matches;
   switch (action.type) {
     case "LOGIN_USER":
-      matches = action.data.user.included.filter(included => included.type === "match_chat");
       return {
         ...state,
         current: {},
-        matches: matches
+        matches: action.matches
       };
     case "SET_USER":
-        matches = action.data.user.included.filter(included => included.type === "match_chat");
         return {
           ...state,
           current: {},
-          matches: matches
+          matches: action.matches
         };
     case "SET_CURRENT_CHAT":
       return {
@@ -31,7 +28,6 @@ export default function chatsReducer(state = {current: null, matches: []}, actio
         ? {...match, attributes: {...match.attributes, messages: [...match.attributes.messages, message]}}
         : match
       })
-      console.log('updatedMatches: ', updatedMatches);
       return {
         ...state,
         matches: updatedMatches

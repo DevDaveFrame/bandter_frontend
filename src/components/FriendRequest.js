@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {Link} from "react-router-dom";
-import { handleMatch } from '../actions/discoverActions';
+import { handleMatch } from '../actions/chatActions';
 
 function FriendRequest(props) {
 

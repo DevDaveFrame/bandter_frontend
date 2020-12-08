@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addSong } from "../actions/userActions"
 import {Modal, Form, Button} from "semantic-ui-react"
 
-// A modal that allows users 
+// A modal that allows users to upload audio files
 function AddMusicModal (props) {
   //boolean determining whether form is rendered
   const [open, setOpen] = useState(false)
@@ -27,13 +27,17 @@ function AddMusicModal (props) {
     }
     fetch(`https://bandter-backend.herokuapp.com/api/v1/songs/`, request)
     .then(r => r.json()).then(data => handleResponse(data))
-    .catch(console.log)
+    .catch(error => handleError(error))
   }
   
   //send song to redux store and close modal
   const handleResponse = (data) => {
     props.addSong(data)
     setOpen(false)
+  }
+
+  const handleError = (error) => {
+    console.log(error)
   }
 
   return (

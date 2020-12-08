@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {handleMatch} from '../actions/discoverActions';
+import {handleMatch} from '../actions/chatActions';
 import MusicPlayer from './MusicPlayer';
 import { Item, Button } from 'semantic-ui-react';
 

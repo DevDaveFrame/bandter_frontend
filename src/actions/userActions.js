@@ -13,8 +13,11 @@ export function setUser () {
     }
     fetch(`https://bandter-backend.herokuapp.com/api/v1/users/${localStorage.current}`, request)
     .then(r => r.json())
-    .then(data => dispatch({type: 'SET_USER', data}))
-    .catch(() => dispatch({type: 'LOGOUT_USER'}))
+    .then(data => parseAndDispatchResponse(data, dispatch))
+    .catch(error => dispatch({
+      type: 'LOGOUT_USER',
+      message: error.message
+    }))
   }
 };
 
@@ -32,10 +35,20 @@ export function loginUser(login){
     }
     fetch(`https://bandter-backend.herokuapp.com/api/v1/login`, request)
     .then(r => r.json())
-    .then(data => dispatch({type: 'LOGIN_USER', data})
-    )
+    .then(data => parseAndDispatchResponse(data, dispatch))
   }
 };
+
+function parseAndDispatchResponse(data, dispatch){
+  let user = data.user
+  dispatch({
+    type: 'SET_USER', 
+    user: user.data.attributes,
+    songs: user.included.filter(included => included.type === "song"),
+    photos: user.included.filter(included => included.type === "photo"),
+    matches: user.included.filter(included => included.type === "match_chat")
+  })
+}
 
 export function updateUser(data) {
   return {
