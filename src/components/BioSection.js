@@ -12,7 +12,7 @@ function BioSection(props) {
 
   return (
     <div className="biosection">
-      <Avatar image={ user.img_url || logo } alt={user.name} width={'200px'} />
+      <Avatar image={ user.img_url || logo } alt={user.name} width={'150px'} />
       <h2 className="bio-name">{user.name}</h2>
       <div className="bio-bio">
         <h5>{user.location}</h5>
