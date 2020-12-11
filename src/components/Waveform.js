@@ -21,8 +21,8 @@ export default function Waveform(props) {
   const { audio, setLoading, setPercent } = props
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
+  const volume = useRef(.5);
   const [playing, setPlay] = useState(false);
-  const [volume, setVolume] = useState(0.5);
 
   // create new WaveSurfer instance
   // On component mount and when url changes
@@ -40,12 +40,12 @@ export default function Waveform(props) {
     });
 
     wavesurfer.current.on("ready", function() {
-      wavesurfer.current.setVolume(volume)
+      wavesurfer.current.setVolume(volume.current)
       setLoading(false);
     });
 
     wavesurfer.current.on("finish", function() {
-      wavesurfer.current.setVolume(volume)
+      wavesurfer.current.setVolume(volume.current)
       setPlay(p => !p);
     });
 
@@ -54,12 +54,14 @@ export default function Waveform(props) {
     return () => wavesurfer.current.destroy();
   }, [audio, setLoading, setPercent]);
 
-  // Dependency array between curly and paren above: 
-
   const handlePlayPause = () => {
     setPlay(p => !p);
     wavesurfer.current.playPause();
   };
+
+  const setVolume = (val) => {
+    volume.current = val
+  }
 
   const onVolumeChange = e => {
     const { target } = e;
