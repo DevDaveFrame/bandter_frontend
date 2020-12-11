@@ -1,9 +1,9 @@
-import {fetchGenres} from './genreActions'
+import {fetchGenres} from "./genreActions"
 
 export function setUser () {
   fetchGenres() 
   return (dispatch) => {
-    dispatch({type: 'START_LOGGING_IN'});
+    dispatch({type: "START_LOGGING_IN"});
     let request = {
       method: "GET",
       headers: {
@@ -13,9 +13,9 @@ export function setUser () {
     }
     fetch(`http://localhost:3000/api/v1/users/${localStorage.current}`, request)
     .then(r => r.json())
-    .then(data => parseAndDispatchResponse(data, dispatch))
+    .then(data => parseAndDispatchResponse(data, dispatch, "SET_USER"))
     .catch(error => dispatch({
-      type: 'LOGOUT_USER',
+      type: "LOGOUT_USER",
       message: error.message
     }))
   }
@@ -24,7 +24,7 @@ export function setUser () {
 export function loginUser(login){
   fetchGenres() 
   return (dispatch) => {
-    dispatch({type: 'START_LOGGING_IN'});
+    dispatch({type: "START_LOGGING_IN"});
     let request = {
       method: "POST",
       headers: {
@@ -35,18 +35,19 @@ export function loginUser(login){
     }
     fetch(`http://localhost:3000/api/v1/login`, request)
     .then(r => r.json())
-    .then(data => parseAndDispatchResponse(data, dispatch))
+    .then(data => parseAndDispatchResponse(data, dispatch, "LOGIN_USER"))
   }
 };
 
-function parseAndDispatchResponse(data, dispatch){
+function parseAndDispatchResponse(data, dispatch, type){
   let user = data.user
   dispatch({
-    type: 'SET_USER', 
+    type: type, 
     user: user.data.attributes,
     songs: user.included.filter(included => included.type === "song"),
     photos: user.included.filter(included => included.type === "photo"),
-    matches: user.included.filter(included => included.type === "match_chat")
+    matches: user.included.filter(included => included.type === "match_chat"),
+    token: data.token
   })
 }
 
@@ -109,13 +110,13 @@ export function updateGenre(user, genres) {
 
 export function deletePhoto(photo) {
   return {
-    type: 'REMOVE_PHOTO',
+    type: "REMOVE_PHOTO",
     photo: photo
   }
 };
 
 export function logoutUser() {
   return {
-    type: 'LOGOUT_USER',
+    type: "LOGOUT_USER",
   }
 };
