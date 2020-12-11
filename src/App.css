@@ -187,11 +187,13 @@ box-shadow: inset 0px -12px 20px -10px rgba(0,0,0,0.75);
   text-align: left;
 }
 
-div.ui.profile-menu.menu {
-  border-radius: 0;
-  background-color: #000000;
-  color: #c94b4b;
-  padding-left: 17%;
+.bio-header {
+  border-bottom: 1px solid
+  
+}
+
+div.ui.menu.profile-menu {
+  padding-left: 2rem;
 }
 
 .biosection h1,h2,h3,h4,h5 {

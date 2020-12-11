@@ -1,6 +1,5 @@
 
 export default function userReducer(state = {}, action) {
-  let user;
   let photo_to_delete;
   let photo_idx;
   let friendRequests;
@@ -10,8 +9,8 @@ export default function userReducer(state = {}, action) {
       return {...state, songs: [], photos: [], loggedIn: true}
     case "LOGIN_USER":
     friendRequests = action.user.friend_requests.data
-    localStorage.token = action.data.token;
-    localStorage.current = user.id
+    localStorage.token = action.token;
+    localStorage.current = action.user.id
       return {
         ...state,
         ...action.user,
